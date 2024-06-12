@@ -1,14 +1,22 @@
 {
-  "name": "mandiri",
+  "name": "lsp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syahrulakbar/lsp.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syahrulakbar/lsp/issues"
+  },
+  "homepage": "https://github.com/syahrulakbar/lsp#readme",
   "devDependencies": {
     "tailwindcss": "^3.4.3"
   }

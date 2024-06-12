@@ -1,0 +1,1352 @@
+<div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>mylearn</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+    crossorigin="anonymous"
+  />
+
+  <!-- FONT AWESOME -->
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- CUSTOM CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f6f9ff;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+
+    .input-field {
+      padding-left: 40px !important;
+    }
+
+    .learning-method {
+      margin-top: 120px;
+    }
+
+    .learning-method img {
+      max-height: 400px;
+    }
+
+    .program {
+      margin-top: 120px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 35px;
+      color: #5999e0;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: bolder;
+      color: #003a7a;
+      margin-left: 24px;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: bolder;
+      color: #003a7a;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      color: #404040;
+    }
+
+    tbody {
+      font-size: 14px;
+    }
+
+    tbody td {
+      font-size: 11px;
+    }
+
+    tbody a {
+      font-weight: 500;
+    }
+
+    .tops-bar a {
+      font-size: 13px;
+    }
+
+    .program .btn {
+      border-radius: 50px;
+      padding: 8px 32px;
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+      background-color: #003a7a;
+    }
+
+    .btn-approveidp {
+      color: #000 !important;
+    }
+
+    .btn-approveidp:hover {
+      background-color: #5999e0 !important;
+    }
+
+    .program .btn:hover {
+      background-color: #5999e0;
+    }
+
+    .img-profile {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-image: url(https://mandiriclick.csod.com/phnx/images/nophoto.png);
+      background-size: cover;
+    }
+
+    .method {
+      padding-right: 18px;
+    }
+
+    .method p {
+      font-size: 14px;
+      margin-left: 24px;
+    }
+
+    .circle-percentage {
+      display: flex;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50px;
+      font-size: 22px;
+      font-weight: bolder;
+      width: 60px !important;
+      height: 60px;
+      margin-left: -45px;
+      margin-top: 15px;
+      color: white;
+    }
+
+    .footer {
+      margin-top: 120px;
+      position: relative;
+    }
+
+    .logo-mandiri img {
+      width: 120px;
+    }
+
+    .logo-akhlak img {
+      width: 50px;
+    }
+
+    #ctl00_footer_pnlCustomFooter {
+      padding: 0px !important;
+    }
+
+    #btnscroll {
+      font-size: 16px;
+      background-color: #003a7a;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      z-index: 3;
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    #btnscroll:hover {
+      background-color: #5999e0;
+    }
+
+    /* === big-background & ornament ===*/
+    /* background */
+    .dark {
+      z-index: -2;
+      top: 0px;
+      right: 0px;
+    }
+
+    .b-dark {
+      position: absolute;
+      width: 500px;
+      z-index: -1;
+      bottom: -21px;
+      left: -15px;
+    }
+    .blue {
+      margin-left: -15px;
+      width: 500px;
+    }
+
+    .yellow {
+      top: 400px;
+    }
+
+    /* ornament */
+    .line {
+      z-index: -1;
+      width: 100%;
+      margin-left: -12px;
+      top: 70px;
+    }
+    .circles {
+      height: 300px;
+    }
+
+    .rectangle {
+      margin-left: -15px;
+      height: 200px;
+      top: 1000px;
+    }
+
+    .white-line {
+      top: 1200;
+    }
+
+    .dd-ornament {
+      top: 1350;
+      left: 100;
+    }
+
+    .idp-ornament {
+      top: 2050;
+      right: 100;
+    }
+
+    /* // `sm` applies to x-small devices (portrait phones, less than 576px) */
+    @media (max-width: 575.98px) {
+      h1 {
+        font-size: 16px;
+        line-height: normal;
+      }
+
+      tbody {
+        font-size: 12px;
+      }
+
+      .banner {
+        margin-top: 30px !important;
+      }
+
+      .learning-method img {
+        display: none;
+      }
+
+      .method h3 {
+        font-size: 12px !important;
+      }
+
+      .circle-percentage {
+        font-size: 18px;
+        margin-top: 20px !important;
+      }
+
+      .program img {
+        text-align: left;
+        width: 200px;
+      }
+
+      .logo-mandiri img {
+        width: 70px;
+      }
+
+      .logo-akhlak img {
+        width: 40px;
+      }
+
+      /*=== background & ornament ===*/
+      .blue {
+        top: 100;
+        width: 350px;
+      }
+      .dark {
+        width: 400px;
+      }
+
+      /* ornament */
+
+      .circles {
+        display: none;
+      }
+      .rectangle {
+        display: none;
+      }
+
+      .white-line {
+        top: 1200;
+      }
+    }
+
+    /* // `md` applies to small devices (landscape phones, less than 768px) */
+    @media (max-width: 767.98px) {
+      h1 {
+        font-size: 18px;
+        line-height: normal;
+      }
+      .devel {
+        flex-direction: column-reverse;
+      }
+
+      .circle-percentage {
+        margin-top: 20px;
+      }
+
+      .banner {
+        margin-top: 30px;
+      }
+      .learning-method img {
+        margin-left: -15px;
+      }
+
+      .program img {
+        width: 300px;
+      }
+
+      table .type,
+      .provider {
+        display: none;
+      }
+
+      .circles {
+        display: none;
+      }
+      .rectangle {
+        display: none;
+      }
+    }
+
+    /* // `lg` applies to medium devices (tablets, less than 992px) */
+
+    @media (max-width: 991.98px) {
+      .scroller {
+        overflow-y: hidden;
+      }
+
+      h1 {
+        font-size: 20px !important;
+        line-height: normal !important;
+      }
+      .search {
+        margin-top: 16px;
+      }
+
+      .notif,
+      .inbox {
+        margin-top: 16px;
+      }
+
+      .banner {
+        margin: auto;
+        margin-top: 30px;
+      }
+      .circle-percentage {
+        margin-top: 50px;
+      }
+
+      .program-explain {
+        margin-top: 30px;
+      }
+      .yellow {
+        top: 1000px;
+      }
+      .b-dark {
+        bottom: -21px;
+        width: 350px;
+      }
+      /* ornament */
+      .rectangle {
+        top: 1700px !important;
+        height: 180px;
+      }
+
+      .circles {
+        height: 180px;
+      }
+
+      .dd-ornament {
+        display: none;
+      }
+
+      .idp-ornament {
+        display: none;
+      }
+
+      #btnscroll {
+        visibility: hidden;
+      }
+    }
+
+    @media (max-width: 425px) {
+    }
+
+    @media (max-width: 375px) {
+    }
+
+    @media (min-width: 992px) {
+      .dropdown .dropinfo:hover .dropdown-menu {
+        display: block;
+      }
+    }
+
+    /* // `xl` applies to large devices (desktops, less than 1200px) */
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      .scroller {
+        height: 260px !important;
+        overflow-y: auto;
+      }
+
+      .dd-ornament {
+        top: 1340;
+        left: 80;
+      }
+
+      .idp-ornament {
+        top: 2080;
+        right: 150;
+      }
+    }
+    @media (max-width: 1199.98px) {
+      .circle-percentage {
+        margin-top: 25px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .dd-ornament {
+        top: 1340;
+        left: 150;
+      }
+
+      .idp-ornament {
+        top: 2080;
+        right: 150;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .scroller {
+        overflow-y: hidden;
+      }
+
+      /* ornament */
+      .circles {
+        height: 300px;
+      }
+
+      .rectangle {
+        top: 1000px;
+      }
+
+      .white-line {
+        top: 1200;
+      }
+
+      .dd-ornament {
+        top: 1300;
+        left: 90;
+      }
+
+      .idp-ornament {
+        top: 2050;
+        right: 90;
+      }
+    }
+    @media (min-width: 1399px) {
+      tbody {
+        font-size: 16px;
+      }
+
+      tbody td {
+        font-size: 12px;
+      }
+
+      /* ornament */
+
+      .circles {
+        height: 300px;
+      }
+
+      .rectangle {
+        top: 1000px;
+      }
+
+      .white-line {
+        top: 1200;
+      }
+
+      .dd-ornament {
+        top: 1350;
+        left: 90;
+      }
+
+      .idp-ornament {
+        top: 2100;
+        right: 90;
+      }
+    }
+  </style>
+</div>
+
+<img
+  class="dark"
+  style="position: absolute"
+  src="/clientimg/mandiriclick/welcome/welcomepage/blue-corner.png"
+  alt=""
+/>
+<img
+  class="blue"
+  style="position: absolute; top: 0; z-index: -1"
+  src="/clientimg/mandiriclick/welcome/welcomepage/bg-blue-resize.png"
+  alt=""
+/>
+<img
+  class="yellow"
+  style="position: absolute; z-index: -1; right: 0px"
+  src="/clientimg/mandiriclick/welcome/welcomepage/bg-yellow-resize.png"
+  alt=""
+/>
+<img
+  class="line"
+  style="position: absolute; width: 100%"
+  src="/clientimg/mandiriclick/welcome/welcomepage/line.png"
+  alt=""
+/>
+
+<div>
+  <div class="tops-bar mt-3">
+    <div class="container">
+      <div class="card border border-light-subtle shadow-lg rounded-1">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="d-flex col-xxl-3 col-xl-4 col-lg-5 col-md-12 col-12">
+              <div class="img-profile"></div>
+              <div class="d-flex ms-3 align-self-center flex-column">
+                <div class="" style="font-size: 14px">
+                  Hai, <span id="nama_pegawai" style="font-size: 16px; font-weight: bolder"></span>
+                </div>
+                <div class="d-flex flex-row align-items-center">
+                  <div
+                    id="email"
+                    style="font-weight: 500; color: #db7829; font-size: 14px"
+                    class="me-1"
+                  >
+                    &nbsp;
+                  </div>
+                  <!--
+            <span class="ms-1" data-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Pastikan email">
+                    <i class="fas fa-info-circle"></i>
+            </span>
+-->
+
+                  <!--dropinfo-->
+                  <div class="dropdown" style="padding: 0px; text-decoration: none">
+                    <div
+                      class="dropinfo"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-info-circle"></i>
+                      <div class="dropdown-menu p-2" style="width: 250px">
+                        <div class="">
+                          <p style="font-size: 12px; margin-bottom: 0px">
+                            Seluruh notifikasi terkait kegiatan pengembangan, termasuk training,
+                            akan dikirimkan ke email disamping. <br /><br />
+                            Harap pastikan email disamping aktif, dan lakukan update melalui
+                            <a
+                              id="editemail"
+                              style="font-size: 12px"
+                              target="_blank"
+                              href="https://tinyurl.com/emailspp"
+                              >tinyurl.com/emailspp</a
+                            >jika ada ketidaksesuaian
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--  <i class="fa-solid fa-circle-info data-toggle=" tooltip"="" data-original-title="Pastikan" ms-1="" "=""></i> -->
+                </div>
+              </div>
+            </div>
+            <div class="search col-xxl-6 col-xl-5 col-lg-4 col-md-12 col-sm-12 col-12">
+              <form class="d-flex align-items-center" role="search">
+                <i
+                  style="position: absolute; padding-left: 16px; padding-top: 20px; font-size: 16px"
+                  class="fa-solid fa-magnifying-glass"
+                ></i>
+                <input
+                  id="searchboxInput"
+                  style="font-size: 16px"
+                  class="form-control p-3 input-field"
+                  type="search"
+                  placeholder=" Mau belajar apa hari ini?"
+                  aria-label="Search"
+                />
+              </form>
+            </div>
+            <div
+              class="inbox col-lg-2 col-md-6 col-sm-6 col-6 d-flex flex-row justify-content-center align-items-center"
+              style="color: #808285; font-size: 16px"
+            >
+              To do:
+              <div
+                id="inbox"
+                style="font-weight: bolder; margin-left: 16px; font-size: 20px; color: #dc3545"
+              >
+                0
+              </div>
+            </div>
+            <div class="notif col-xxl-1 col-lg-1 col-md-6 col-sm-6 col-6">
+              <div class="dropdown text-center">
+                <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-regular fa-bell" style="font-size: 20px"></i>
+                  <!-- badge notif active  -->
+                  <style>
+                    #badge {
+                      visibility: hidden;
+                    }
+                    #pending-notnull {
+                      display: none;
+                    }
+                  </style>
+                  <span
+                    id="badge"
+                    class="position-absolute top-0 ms-2 translate-middle badge rounded-pill bg-danger"
+                  >
+                    <div id="badge-notif" style="font-size: 12px">0</div>
+                  </span>
+                </button>
+                <ul id="pending-items" class="dropdown-menu p-3">
+                  <div
+                    id="pending-notnull"
+                    style="
+                      font-size: 12px;
+                      color: #404040;
+                      text-align: center;
+                      align-items: center;
+                      font-weight: bolder;
+                    "
+                  >
+                    Notifikasi
+                  </div>
+                  <div
+                    id="no-pending"
+                    style="font-size: 12px; color: #808285; text-align: center; align-items: center"
+                  >
+                    Tidak ada notifikasi
+                  </div>
+                  <div
+                    id="idpapprove"
+                    style="
+                      font-size: 14px;
+                      color: rgb(64, 64, 64);
+                      text-align: center;
+                      align-items: center;
+                      font-weight: bolder;
+                    "
+                  >
+                    <hr class="dropdown-divider" />
+                    <a
+                      style="
+                        font-size: 14px;
+                        margin-left: 12px;
+                        font-weight: bolder;
+                        color: #0a58ca;
+                      "
+                      href="https://mandiriclick.csod.com/ui/devplans/devplan/approvals"
+                      target="_blank"
+                      ><div id="approval-obj" class="dropdown-item" style="color: #0a58ca">
+                        <i>Persetujuan IDP</i>
+                      </div></a
+                    >
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-banner mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-12 col-12">
+          <div class="card border border-light-subtle rounded-1 w-100 h-100">
+            <div class="card-body p-2">
+              <div class="table-responsive scroller h-100">
+                <table id="latest_learning" class="table table-hover h-100">
+                  <thead style="text-transform: capitalize; font-size: 11px; font-weight: bolder">
+                    <tr>
+                      <th style="color: #808285" class="topic" scope="col">
+                        Topik Pembelajaran Terbaru Anda
+                      </th>
+                      <th style="color: #808285" class="provider" scope="col">Penyedia</th>
+                      <th style="color: #808285" class="date" scope="col">Tenggat</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="h-100">
+                    <tr
+                      id="seemore"
+                      style="
+                        text-align: right;
+                        border-bottom: transparent;
+                        --bs-table-hover-bg: transparent;
+                      "
+                      class="p-0"
+                    >
+                      <td colspan="4" style="padding-bottom: 0px">
+                        <a id="link_profile" href="" style="font-size: 12px; font-weight: 600"
+                          >Lihat Lebih Banyak &nbsp;&gt;&gt;
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="banner col-lg-4 col-md-6 col-12">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators"></div>
+
+            <!-- BANNER IMAGES SIZE 1:1 -->
+            <div class="carousel-inner rounded-1"></div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button onclick="topFunction()" class="" id="btnscroll">
+    <i style="color: white; text-decoration: underline" class="fa-solid fa-arrow-down"></i>
+  </button>
+
+  <!-- ornaments -->
+  <img
+    class="circles"
+    src="/clientimg/mandiriclick/welcome/welcomepage/star-circle.png"
+    style="position: absolute; z-index: -1; right: 0"
+    alt=""
+  />
+  <img
+    class="rectangle"
+    style="position: absolute; z-index: -1"
+    src="/clientimg/mandiriclick/welcome/welcomepage/rectangle.png"
+    alt=""
+  />
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12 col-lg-9 col-xl-9">
+        <a href="https://mandiriclick.csod.com/catalog/CustomPage.aspx?id=221000449">
+          <img
+            class="rounded-1"
+            style="width: 100%; height: auto; margin-top: 60px"
+            src="/clientimg/mandiriclick/welcome/welcomepage/banner-mdna-new.png"
+            alt=""
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- learning method -->
+  <section class="learning-method">
+    <div class="container">
+      <div class="row text-center justify-content-center">
+        <div class="col-md-10 col-10">
+          <h1>
+            Cara Jitu Mengakselerasi Kompetensi untuk Menjadi<span style="color: #ffb50e">
+              Mandirian Always Deliver &amp; Always Ahead</span
+            >
+          </h1>
+          <p style="font-size: 16px">
+            Dalam rangka mengakselerasi untuk menjadi Mandirian Always Deliver &amp; Always Ahead,
+            kamu dapat memanfaatkan metode belajar 10:20:70
+          </p>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-center mt-5">
+        <div class="col-xl-1 col-lg-1"></div>
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-1 text-center">
+          <img src="/clientimg/mandiriclick/welcome/welcomepage/bar-resize.png" alt="" />
+        </div>
+        <div class="col-xl-1 col-lg-1 col-md-2 col-sm-3 col-12"></div>
+        <div class="method col-xl-7 col-lg-7 col-md-6 col-sm-8 col-12">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12 col-sm-12 col-11 rounded-1">
+              <div class="card border border-light-subtle shadow-sm">
+                <div class="card-body pb-1">
+                  <div class="circle-percentage" style="background-color: #8dbcf0">10%</div>
+                  <h2>“Berpartisipasilah dalam Kelas-Kelas yang Tersedia”</h2>
+                  <p>
+                    Perkuat pengetahuanmu dengan mengikuti kelas terformat berkurikulum standar dan
+                    berkualitas untuk memperdalam pemahamanmu melalui aktivitas Training dan
+                    E-Learning
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12 col-sm-12 col-11 my-3 rounded-1">
+              <div class="card border border-light-subtle shadow-sm">
+                <div class="card-body pb-1">
+                  <div class="circle-percentage" style="background-color: #459dda">20%</div>
+                  <h2>“Perluas Wawasanmu dengan Berinteraksi”</h2>
+                  <p>
+                    Berinteraksi untuk memperluas wawasan melalui aktivitas Social Learning,
+                    Coaching/Development Dialogue, Mentoring, Collaborative Learning, Leader
+                    Teachers, dan Onboarding &amp; Community
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12 col-sm-12 col-11 rounded-1">
+              <div class="card border border-light-subtle shadow-sm">
+                <div class="card-body pb-1">
+                  <div class="circle-percentage" style="background-color: #003a7a">70%</div>
+                  <h2>“Perdalam Ilmu dengan Praktik Langsung”</h2>
+                  <p>
+                    Kembangkan kompetensimu dengan mengaplikasikannya secara nyata melalui aktivitas
+                    Project assignment, Subsidiary Assignment, Mobility &amp; Swap, RKK Learning,
+                    Internship, dan Buddy System
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <img
+    class="white-line"
+    style="position: absolute; right: 0; z-index: -1"
+    src="/clientimg/mandiriclick/welcome/welcomepage/white-line.png"
+    alt=""
+  />
+  <!-- <img class="circle" style="position: absolute;right: 0;z-index: -1;" src="asset/Exclude.png" alt=""> -->
+
+  <!--program -->
+
+  <section class="program">
+    <div class="container">
+      <div class="devel row align-items-center justify-content-center">
+        <div class="col-lg-6 col-md-6 pe-lg-5">
+          <div class="program-explain">
+            <h3>DEVELOPMENT DIALOGUE</h3>
+            <h1>
+              Mulai <span style="color: #ffb50e">#NgobrolAjaDulu</span> Bersama Employee
+              Manager(EM)/Atasan atau dengan Tim
+            </h1>
+            <p class="mt-4">
+              #NgobrolAjaDulu untuk menyelaraskan kontribusi Mandirian dengan tujuan bisnis bank,
+              mendiskusikan dan memonitor target kinerja, meningkatkan kompetensi, dan menyusun
+              rencana pengembangan.
+            </p>
+            <a href="https://mandiriclick.csod.com/ui/perf-check-ins/Check-Ins"
+              ><button type="button" class="btn">Yuk Ngobrol</button>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 text-center">
+          <img
+            style="width: 300px"
+            src="/clientimg/mandiriclick/welcome/welcomepage/dd-resize.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="row align-items-center mt-5 justify-content-center">
+        <div class="col-lg-4 col-md-6 text-center">
+          <img
+            style="width: 300px"
+            src="/clientimg/mandiriclick/welcome/welcomepage/idp-resize.png"
+            alt=""
+          />
+        </div>
+        <div class="col-lg-6 col-md-6 ps-lg-5">
+          <div class="program-explain">
+            <h3>INDIVIDUAL DEVELOPMENT PLAN</h3>
+            <h1>
+              <span style="color: #ffb50e">Susun</span> dan
+              <span style="color: #ffb50e">Catat Resolusi</span> Pengembangan Diri yang Telah
+              Disepakati Bersama EM/Atasan
+            </h1>
+            <p class="mt-4">
+              Catat resolusi dan buat jadi aksi untuk meningkatkan kompetensi membuat pengembangan
+              Mandirian lebih terarah, serta menjadikan catatan resolusi sebagai catatan learning
+              goals dan career plan.
+            </p>
+            <div class="d-flex gap-2">
+              <a
+                href="https://mandiriclick.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/DevPlanNew&amp;tab_page_id=-200159413"
+                ><button type="button" class="btn">Susun Sekarang</button></a
+              >
+              <!--  <a href="https://mandiriclick.csod.com/ui/devplans/devplan/approvals"><button type="button" class="btn-approveidp btn btn-outline-primary" style="background-color: transparent;">Persetujuan IDP</button></a>                    
+                       -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <img class="b-dark" src=" " alt="" />
+    <div class="container">
+      <div class="row align-items-end">
+        <div class="d-flex justify-content-end align-items-end gap-3">
+          <!-- <div class="logo-mandiri">
+                        <img src="/clientimg/mandiriclick/welcome/welcomepage/logo_mandiri.png" alt="">    
+                    </div>
+                    <div class="logo-akhlak">
+                        <img src="/clientimg/mandiriclick/welcome/welcomepage/logo_akhlak.png" alt="">
+                    </div>   -->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- BOOTSTRAP JS -->
+<!-- <script src="https://mugonline.mandiriclick.co.id/csod/welcomepage2/https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> -->
+
+<!-- jquery cdn -->
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+  integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  let mybutton = document.getElementById("btnscroll");
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      mybutton.style.display = "none";
+    } else {
+      mybutton.style.display = "block";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = $(document).height();
+    document.documentElement.scrollTop = $(document).height();
+  }
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    var meta = document.createElement("meta");
+    meta.name = "referrer";
+    meta.content = "no-referrer";
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $("#scrollToBottom").click(function () {
+      $("html, body").animate({ scrollTop: $(document).height() });
+    });
+
+    var info = document.getElementById("editemail");
+    info.addEventListener("click", function (event) {
+      event.preventDefault();
+      var externalURL = "https://tinyurl.com/emailspp";
+      window.open(externalURL, "_blank");
+    });
+
+    var input = document.getElementById("searchboxInput");
+    input.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        location.href =
+          "https://mandiriclick.csod.com/ui/lms-learner-search/search?pageNumber=1&query=" +
+          input.value;
+      }
+    });
+
+    var size = 10;
+    var num = "{Passport_Number}";
+    while (num.length < size) num = "0" + num;
+
+    $.ajax({
+      url: "https://mandiriclick.csod.com/clientimg/mandiriclick/users/photos/100/" + num + ".jpg",
+      method: "GET",
+      success: function (imgprofil) {
+        var size = 10;
+        var num = { Passport_Number };
+        while (num.length < size) num = "0" + num;
+
+        var imageUrl =
+          "https://mandiriclick.csod.com/clientimg/mandiriclick/users/photos/100/" + num + ".jpg";
+        $(".img-profile").css("background-image", "url(" + imageUrl + ")");
+      },
+    });
+
+    $.ajax({
+      url: "https://dev-contentadm.mandiriclick.com/index.php/webservice/rest/search_entry/json?auth[key]=7c3dcd76716c603e0fe931368b14507e&auth[secret]=2df7d8a8b6cefc7ddcb6563c43d5d063&data[site_id]=1&data[channel_id]=8&data[entry_id]=579",
+      method: "GET",
+      dataType: "json",
+      success: function (banner) {
+        var i = 0;
+        for (i = 0; i < banner.data[0].after_login_slider_banner.length; i++) {
+          $(".carousel-indicators").append(
+            "<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='" +
+              [i] +
+              "'class='btn-banner' aria-current='true' aria-label=''></button>",
+          );
+          if (banner.data[0].after_login_slider_banner[i].link_url === "") {
+            $(".carousel-inner").append(
+              "<div class='btn-banner carousel-item'><img src='https://s3mandiriclick.azureedge.net/home_after_login_slider/" +
+                banner.data[0].after_login_slider_banner[i].slider_image +
+                "' class='d-block w-100' alt=''...''></div>",
+            );
+          } else {
+            $(".carousel-inner").append(
+              "<div class='btn-banner carousel-item'> <a target='_self' href='" +
+                banner.data[0].after_login_slider_banner[i].link_url +
+                " '>  <img src='https://s3mandiriclick.azureedge.net/home_after_login_slider/" +
+                banner.data[0].after_login_slider_banner[i].slider_image +
+                "' class='d-block w-100' alt=''...''> </a></div>",
+            );
+          }
+          $(".btn-banner:first-child").addClass("active");
+        }
+      },
+    });
+
+    if (new Date().valueOf() < localStorage.token_expire) {
+      getData(num);
+    } else {
+      $.ajax({
+        url: "https://mandiriclick.csod.com/services/api/oauth2/token",
+        headers: {
+          "Cache-Control": "no-cache",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        dataType: "json",
+        data: JSON.stringify({
+          clientId: "18b447774t08x",
+          clientSecret: "a2c41397a5fd015061b5513e1f947785c969db048e301a36ac0568d48fa4b3ef",
+          grantType: "client_credentials",
+          scope: "approval:read employee:read inbox:read task:read transcript:read",
+        }),
+        success: function (data) {
+          localStorage.setItem("token", data.access_token);
+          localStorage.setItem("token_expire", new Date().valueOf() + 1800000);
+          getData(num);
+        },
+      });
+    }
+  });
+
+  function getData(num) {
+    var GoalApproval = 0;
+    var FormApproval = 0;
+    var TrainingApproval = 0;
+    var OtherTasks = 0;
+    var inboxtotal = 0;
+
+    function total() {
+      inboxtotal = GoalApproval + FormApproval + TrainingApproval + OtherTasks;
+
+      if (inboxtotal > 0) {
+        $("#badge").css("visibility", "visible");
+        $("#pending-notnull").show();
+        $("#no-pending").hide();
+      }
+
+      $("#inbox").html(inboxtotal);
+      $("#badge-notif").html(inboxtotal);
+    }
+
+    function set_variabel(sum_approval, value) {
+      if (sum_approval == "GoalApproval") {
+        GoalApproval = value;
+        total();
+      } else if (sum_approval == "FormApproval") {
+        FormApproval = value;
+        total();
+      } else if (sum_approval == "TrainingApproval") {
+        TrainingApproval = value;
+        total();
+      } else if (sum_approval == "OtherTasks") {
+        OtherTasks = value;
+        total();
+      }
+    }
+
+    $.ajax({
+      url: "https://mandiriclick.csod.com/services/api/x/users/v2/employees?userName=" + num,
+      headers: {
+        Authorization: "Bearer " + localStorage.token,
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+      dataType: "json",
+      success: function (employee) {
+        localStorage.setItem("employeeid", employee.data[0].id);
+
+        var splitlastname = employee.data[0].lastName;
+        var lastname = splitlastname.split(" ")[0];
+        $("#nama_pegawai").html(employee.data[0].firstName + " " + lastname);
+
+        $("#email").html(employee.data[0].primaryEmail.toLowerCase());
+
+        var learning_profile =
+          "https://mandiriclick.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Transcript&TargetUser=" +
+          localStorage.employeeid;
+        $("#link_profile").attr("href", learning_profile);
+
+        var link_approve =
+          "https://mandiriclick.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Requests&TargetUser=" +
+          localStorage.employeeid;
+        // $("#linkFormApprove").attr("href", link_approve);
+
+        $.ajax({
+          url:
+            "https://mandiriclick.csod.com/services/api/Employee/" +
+            num +
+            "/approvals?UserId=" +
+            num,
+          headers: {
+            Authorization: "Bearer " + localStorage.token,
+            "Content-Type": "application/json",
+          },
+          method: "GET",
+          dataType: "json",
+          success: function (notification) {
+            var GoalApprovalTmp = 0;
+            var FormApprovalTmp = 0;
+            for (i = 0; i < notification.data.length; i++) {
+              if (notification.data[i].ApprovalType == "GoalApproval") {
+                GoalApprovalTmp++;
+              } else if (notification.data[i].ApprovalType == "FormApproval") {
+                FormApprovalTmp++;
+              }
+            }
+
+            set_variabel("GoalApproval", GoalApprovalTmp);
+            set_variabel("FormApproval", FormApprovalTmp);
+
+            if (GoalApproval > 0) {
+              $("#idpapprove").before(
+                "<div><li><hr class='dropdown-divider'></li><li class='d-flex'><h3 id='pending-total' style='color:#dc3545;font-size:24px;width:30px; text-align:right;'>" +
+                  GoalApproval +
+                  "</h3><a style='font-size: 14px;font-weight:bolder;color:#0a58ca;' href='https://mandiriclick.csod.com/EPM/Goals/PendingGoals.aspx?tab_page_id=-580170' target='_blank'><div id='approval-obj' class='dropdown-item' style='color: #0a58ca'>" +
+                  "Persetujuan Target" +
+                  "</div></a></li></div>",
+              );
+            }
+
+            if (FormApproval > 0) {
+              $("#idpapprove").before(
+                "<div><li><hr class='dropdown-divider'></li><li class='d-flex'><h3 id='pending-total' style='color:#dc3545;font-size:24px;width:30px; text-align:right;'>" +
+                  FormApproval +
+                  "</h3><a id='linkFormApprove' style='font-size: 14px;font-weight:bolder;color:#0a58ca;' href='" +
+                  link_approve +
+                  "' target='_blank'><div id='approval-form' class='dropdown-item' style='color: #0a58ca'>" +
+                  "Persetujuan Form" +
+                  "</div></a></li></div>",
+              );
+            }
+          },
+        });
+      },
+    });
+
+    $.ajax({
+      url: "https://mandiriclick.csod.com/services/api/TranscriptAndTask/Transcript?UserId=" + num,
+      headers: {
+        Authorization: "Bearer " + localStorage.token,
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+      dataType: "json",
+      success: function (learning) {
+        var j = 0;
+        for (i = 0; i < learning.data[0].Transcripts.length; i++) {
+          if (learning.data[0].Transcripts[i].CompletionDate === null) {
+            if (learning.data[0].Transcripts[i].LoType === "Session") {
+              learning.data[0].Transcripts[i].LoType = "Classroom";
+              learning.data[0].Transcripts[i].LaunchUrl =
+                "https://mandiriclick.csod.com/ui/lms-learning-details/app/session/" +
+                learning.data[0].Transcripts[i].LoId;
+            } else if (learning.data[0].Transcripts[i].LoType === "Curriculum") {
+              learning.data[0].Transcripts[i].LaunchUrl =
+                "https://mandiriclick.csod.com/ui/lms-learning-details/app/curriculum/" +
+                learning.data[0].Transcripts[i].LoId;
+            } else if (learning.data[0].Transcripts[i].LoType === "Online Course") {
+              learning.data[0].Transcripts[i].LaunchUrl =
+                "https://mandiriclick.csod.com/ui/lms-learning-details/app/course/" +
+                learning.data[0].Transcripts[i].LoId;
+            } else if (learning.data[0].Transcripts[i].LoType === "Video") {
+              learning.data[0].Transcripts[i].LaunchUrl =
+                "https://mandiriclick.csod.com/ui/lms-learning-details/app/video/" +
+                learning.data[0].Transcripts[i].LoId;
+            } else if (learning.data[0].Transcripts[i].LoType === "Test") {
+              learning.data[0].Transcripts[i].LaunchUrl =
+                "https://mandiriclick.csod.com/ui/lms-learning-details/app/test/" +
+                learning.data[0].Transcripts[i].LoId;
+            } else if (learning.data[0].Transcripts[i].LoType === "General") {
+              learning.data[0].Transcripts[i].LaunchUrl =
+                "https://mandiriclick.csod.com/ui/lms-learning-details/app/material/" +
+                learning.data[0].Transcripts[i].LoId;
+            }
+
+            if (learning.data[0].Transcripts[i].DueDate === null) {
+              learning.data[0].Transcripts[i].DueDate = "-";
+            }
+
+            $("tr").remove("#seemore");
+
+            $("tbody").append(
+              "<tr class='align-middle'><th id='topic' class='' scope='row' style='padding-right:20px;'><a target='_blank' href=' " +
+                learning.data[0].Transcripts[i].LaunchUrl +
+                " '>" +
+                learning.data[0].Transcripts[i].Title.toUpperCase() +
+                "</a><span class='badge text-bg-warning ms-2' style='font-size:10px'>" +
+                learning.data[0].Transcripts[i].LoType +
+                " </span></th><td id='provider' class='provider' style='padding-right:20px;text-transform:uppercase;color:#808285;letter-spacing:1px;font-weight:600'>" +
+                learning.data[0].Transcripts[i].ProviderName +
+                "</td><td id='date' class='' style='color:#808285;letter-spacing:1px;font-weight:600;text-transform: uppercase;text-align: center;'>" +
+                learning.data[0].Transcripts[i].DueDate.substring(0, 10) +
+                "</td></tr>",
+            );
+
+            $("tbody").append(
+              "<tr id='seemore' style='text-align: right; border-bottom: transparent;--bs-table-hover-bg: transparent' class='p-0'><td colspan='4' style='padding-bottom:0px'><a id='link_profile' href='https://mandiriclick.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Transcript&TargetUser=" +
+                localStorage.employeeid +
+                " 'style='font-size:12px; font-weight:600'>Lihat Lebih Banyak  >> </a></td></tr>",
+            );
+
+            j++;
+          }
+          if (j > 4) {
+            break;
+          }
+        }
+      },
+    });
+
+    $.ajax({
+      url: "https://mandiriclick.csod.com/services/api/TranscriptAndTask/Approval?UserId=" + num,
+      headers: {
+        Authorization: "Bearer " + localStorage.token,
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+      dataType: "json",
+      success: function (training) {
+        if (!isNaN(training.totalRecords)) {
+          set_variabel("TrainingApproval", training.totalRecords);
+
+          if (TrainingApproval > 0) {
+            $("#idpapprove").before(
+              "<div><li><hr class='dropdown-divider'></li><li class='d-flex'><h3 id='pending-total' style='color:#dc3545;font-size:24px; width:30px; text-align:right;'>" +
+                TrainingApproval +
+                "</h3><a style='color:#0a58ca;font-size: 14px;font-weight:bolder';' href='https://mandiriclick.csod.com/reports/trackemployee/TrackEmpRequest.aspx?tab_id=-4&tab_page_id-540460' target='_blank'><div id='approval-obj' class='dropdown-item' style='color: #0a58ca'>" +
+                "Persetujuan Training" +
+                "</div></a></li></div>",
+            );
+          }
+        }
+      },
+    });
+
+    $.ajax({
+      url:
+        "https://mandiriclick.csod.com/services/api/TranscriptAndTask/Task?UserId=" +
+        num +
+        "&PendingTasksOnly=true",
+      headers: {
+        Authorization: "Bearer " + localStorage.token,
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+      dataType: "json",
+      success: function (tasks) {
+        if (!isNaN(tasks.totalRecords)) {
+          set_variabel("OtherTasks", tasks.totalRecords);
+
+          if (OtherTasks > 0) {
+            $("#idpapprove").before(
+              "<div><li><hr class='dropdown-divider'></li><li class='d-flex'><h3 id='pending-total' style='color:#dc3545;font-size:24px; width:30px; text-align:right;'>" +
+                OtherTasks +
+                "</h3><a style='font-size: 14px;font-weight:bolder;color:#0a58ca' href='https://mandiriclick.csod.com/EPM/Scheduler/TaskReview.aspx' target='_blank'><div id='approval-obj' class='dropdown-item' style='color: #0a58ca'>" +
+                "Tugas Lainnya" +
+                "</div></a></li></div>",
+            );
+          }
+        }
+      },
+    });
+  }
+</script>

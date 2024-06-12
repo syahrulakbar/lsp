@@ -1,0 +1,2803 @@
+<div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LSP</title>
+  <!-- Image Map Resizer -->
+  <script src="https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/becc2df197.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+  <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      box-sizing: border-box;
+    }
+    div.table-asesor {
+      overflow-x: auto !important;
+    }
+
+    div.modal-skema.active,
+    div.modal-registrasi.active {
+      display: flex;
+    }
+    div.modal-skema,
+    div.modal-registrasi {
+      display: none;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    @layer utilities {
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+    }
+
+    ol {
+      list-style-type: decimal !important;
+      list-style-position: inside !important;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "mandiri-yellow": "#feb602",
+            "mandiri-blue": "#013066",
+            "mandiri-dark": "#0B335C",
+            "mandiri-black": "#60698A",
+            "mandiri-light": {
+              100: "#0018f2",
+              200: "#0024ae",
+              300: "#041AD8",
+              400: "#5999E0",
+            },
+          },
+          backgroundImage: {
+            "hero-pattern":
+              "url('https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/jumbotron-2.png')",
+          },
+        },
+      },
+    };
+  </script>
+</div>
+<div
+  id="main-content"
+  class="bg-[#FAFAFA] overflow-x-hidden flex flex-col items-center justify-center"
+>
+  <nav class="border-t-4 border-mandiri-yellow p-2 w-full min-w-80 max-w-[2000px]">
+    <div class="xl:mx-20">
+      <div class="flex flex-row">
+        <div class="flex flex-row space-x-2 text-xs">
+          <button
+            data-name="id"
+            id="btn-id"
+            class="btn-lang active text-slate-400 [&.active]:text-black"
+          >
+            ID
+          </button>
+          <p class="text-mandiri-yellow">|</p>
+          <button data-name="en" id="btn-eng" class="btn-lang text-slate-400 [&.active]:text-black">
+            EN
+          </button>
+        </div>
+      </div>
+      <a
+        href="https://bankmandiri.co.id/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full flex justify-end pb-5"
+      >
+        <img
+          src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/logoMandiri.png"
+          alt="logo mandiri"
+        />
+      </a>
+    </div>
+  </nav>
+  <main class="w-full min-w-80 max-w-[2000px]">
+    <div class="w-full h-max">
+      <div
+        class="w-full xl:px-5 xl:py-10 flex min-h-screen lg:bg-hero-pattern bg-no-repeat bg-cover xl:bg-contain"
+      >
+        <div class="w-full h-full lg:w-[45%] p-4 flex flex-col gap-5">
+          <h3 lang="id" class="text-mandiri-yellow text-lg">TENTANG</h3>
+          <h3 lang="en" class="text-mandiri-yellow text-lg">ABOUT</h3>
+          <p lang="id" class="text-mandiri-blue font-bold text-4xl xl:text-5xl p-2">
+            Lembaga Sertifikasi Profesi
+          </p>
+          <p lang="en" class="text-mandiri-blue font-bold text-4xl xl:text-5xl p-2">
+            Professional Certification Organization
+          </p>
+          <p lang="id" class="text-mandiri-black text-lg">
+            Bank Mandiri melalui Surat Keputusan Direksi Nomor KEP.DIR/10A/2023 tanggal 6 Maret 2023
+            telah memberikan persetujuan atas pendirian Lembaga Sertifikasi Profesi (LSP) Bank
+            Mandiri. Pendirian LSP Bank Mandiri tersebut adalah untuk memastikan bahwa pegawai Bank
+            Mandiri yang telah mendapatkan pembelajaran, pelatihan maupun pengalaman kerja, memiliki
+            kompetensi (keahlian) yang diakui secara nasional dan dibuktikan dengan sertifikasi
+            profesi yang telah memenuhi standar sertifikasi nasional yang diterbitkan oleh Lembaga
+            Sertifikasi Bank Mandiri.
+          </p>
+          <p lang="en" class="text-mandiri-black text-lg">
+            Bank Mandiri through Board of Directors Decree Number KEP.DIR/10A/2023 dated March 6,
+            2023. has approved the establishment of the Bank Mandiri Professional Certification
+            Institute (LSP). Mandiri. The establishment of LSP Bank Mandiri is to ensure that
+            employees of Bank Mandiri who have received learning, training and work experience, have
+            a professional certification. employees who have received learning, training and work
+            experience, have nationally recognized competencies (expertise). competence (expertise)
+            that is nationally recognized and evidenced by professional certification that meets
+            national certification standards. certification that meets national certification
+            standards issued by the Bank Mandiri Certification Institute. Bank Mandiri Certification
+            Institute.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <section class="my-20">
+      <div class="w-full flex flex-col items-center text-center">
+        <h3 lang="id" class="text-mandiri-yellow text-lg">SKEMA SERTIFIKASI</h3>
+        <h3 lang="en" class="text-mandiri-yellow text-lg">CERTIFICATION SCHEME</h3>
+        <h2 lang="id" class="text-mandiri-dark text-xl md:text-2xl xl:text-3xl font-bold">
+          Nama Skema dan Jumlah Unit Kompetensi
+        </h2>
+        <h2 lang="en" class="text-mandiri-dark text-xl md:text-2xl xl:text-3xl font-bold">
+          Scheme Name and Number of Units of Competency
+        </h2>
+        <h2 lang="id" class="text-mandiri-light-100 text-xl md:text-2xl xl:text-3xl font-bold">
+          Unit Kompetensi
+        </h2>
+        <h2 lang="en" class="text-mandiri-light-100 text-xl md:text-2xl xl:text-3xl font-bold">
+          Units of Competency
+        </h2>
+      </div>
+      <div
+        data-aos="fade-up"
+        class="w-full flex flex-col xl:flex-row items-center justify-center gap-2 px-2 mt-5"
+      >
+        <div
+          class="w-[80%] h-[320px] justify-evenly flex flex-col xl:w-1/5 p-2 items-center bg-white rounded-md shadow-lg"
+        >
+          <div class="w-full h-[80%] flex flex-col items-center xl:items-start">
+            <div class="h-1/3">
+              <img
+                src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-money.png"
+                alt="icon uang"
+                class="w-[64px] h-[64px]"
+              />
+            </div>
+            <div class="h-2/3 flex flex-col gap-5 text-lg">
+              <p class="text-mandiri-blue font-bold text-2xl">General Banking</p>
+              <p lang="id" class="text-mandiri-light-200">17 Unit Kompetensi</p>
+              <p lang="en" class="text-mandiri-light-200">17 Units of Competency</p>
+            </div>
+          </div>
+          <button
+            id="btn-general-banking"
+            data-name="modal-general-banking"
+            class="btn-modal text-lg w-full rounded-full bg-mandiri-dark text-white font-bold p-2 hover:bg-mandiri-light-400 transition-all ease-in-out"
+          >
+            <span lang="id"> Detail Skema </span>
+            <span lang="en"> Scheme Details </span>
+          </button>
+        </div>
+        <div
+          class="w-[80%] h-[320px] justify-evenly flex flex-col xl:w-1/5 p-2 items-center bg-white rounded-md shadow-lg"
+        >
+          <div class="w-full h-[80%] flex flex-col items-center xl:items-start">
+            <div class="h-1/3">
+              <img
+                src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-market.png"
+                alt="icon uang"
+                class="w-[64px] h-[64px]"
+              />
+            </div>
+            <div class="h-2/3 flex flex-col gap-5 text-lg">
+              <p lang="id" class="text-mandiri-blue font-bold text-2xl">Infrastruktur</p>
+              <p lang="en" class="text-mandiri-blue font-bold text-2xl">Infrastructure</p>
+              <p lang="id" class="text-mandiri-light-200">14 Unit Kompetensi</p>
+              <p lang="en" class="text-mandiri-light-200">14 Units of Competency</p>
+            </div>
+          </div>
+          <button
+            id="btn-infrastruktur"
+            data-name="modal-infrastruktur"
+            class="btn-modal text-lg w-full rounded-full bg-mandiri-dark text-white font-bold p-2 hover:bg-mandiri-light-400 transition-all ease-in-out"
+          >
+            <span lang="id"> Detail Skema </span>
+            <span lang="en"> Scheme Details </span>
+          </button>
+        </div>
+        <div
+          class="w-[80%] h-[320px] justify-evenly flex flex-col xl:w-1/5 p-2 items-center bg-white rounded-md shadow-lg"
+        >
+          <div class="w-full h-[80%] flex flex-col items-center xl:items-start">
+            <div class="h-1/3 py-5">
+              <img
+                src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-koper.png"
+                alt="icon uang"
+                class="w-[32px] h-[32px]"
+              />
+            </div>
+            <div class="h-2/3 flex flex-col gap-5 text-lg">
+              <p lang="id" class="text-mandiri-blue font-bold text-2xl">Kepatuhan</p>
+              <p lang="en" class="text-mandiri-blue font-bold text-2xl">Compliance</p>
+              <p lang="id" class="text-mandiri-light-200">6 Unit Kompetensi</p>
+              <p lang="en" class="text-mandiri-light-200">6 Units of Competency</p>
+            </div>
+          </div>
+          <button
+            id="btn-kepatuhan"
+            data-name="modal-kepatuhan"
+            class="btn-modal text-lg w-full rounded-full bg-mandiri-dark text-white font-bold p-2 hover:bg-mandiri-light-400 transition-all ease-in-out"
+          >
+            <span lang="id"> Detail Skema </span>
+            <span lang="en"> Scheme Details </span>
+          </button>
+        </div>
+        <div
+          class="w-[80%] h-[320px] justify-evenly flex flex-col xl:w-1/5 p-2 items-center bg-white rounded-md shadow-lg"
+        >
+          <div class="w-full h-[80%] flex flex-col items-center xl:items-start">
+            <div class="h-1/3">
+              <img
+                src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-user.png"
+                alt="icon uang"
+                class="w-[64px] h-[64px]"
+              />
+            </div>
+            <div class="h-2/3 flex flex-col gap-5 text-lg">
+              <p lang="id" class="text-mandiri-blue font-bold text-2xl">
+                Mengelola Umpan Balik Pelanggan
+              </p>
+              <p lang="en" class="text-mandiri-blue font-bold text-2xl">
+                Managing Customer Feedback
+              </p>
+              <p lang="id" class="text-mandiri-light-200">9 Unit Kompetensi</p>
+              <p lang="en" class="text-mandiri-light-200">9 Units of Competency</p>
+            </div>
+          </div>
+          <button
+            id="btn-feedback"
+            data-name="modal-feedback"
+            class="btn-modal text-lg w-full rounded-full bg-mandiri-dark text-white font-bold p-2 hover:bg-mandiri-light-400 transition-all ease-in-out"
+          >
+            <span lang="id"> Detail Skema </span>
+            <span lang="en"> Scheme Details </span>
+          </button>
+        </div>
+        <div
+          class="w-[80%] h-[320px] justify-evenly flex flex-col xl:w-1/5 p-2 items-center bg-white rounded-md shadow-lg"
+        >
+          <div class="w-full h-[80%] flex flex-col items-center xl:items-start">
+            <div class="h-1/3 py-5">
+              <img
+                src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-computer.png"
+                alt="icon uang"
+                class="w-[32px] h-[32px]"
+              />
+            </div>
+            <div class="h-2/3 flex flex-col gap-5 text-lg">
+              <p class="text-mandiri-blue font-bold text-2xl">Basic Software Development</p>
+              <p lang="id" class="text-mandiri-light-200">10 Unit Kompetensi</p>
+              <p lang="en" class="text-mandiri-light-200">10 Units of Competency</p>
+            </div>
+          </div>
+          <button
+            id="btn-software"
+            data-name="modal-software"
+            class="btn-modal text-lg w-full rounded-full bg-mandiri-dark text-white font-bold p-2 hover:bg-mandiri-light-400 transition-all ease-in-out"
+          >
+            <span lang="id"> Detail Skema </span>
+            <span lang="en"> Scheme Details </span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      class="w-full h-max flex flex-col justify-center items-center space-y-2 my-20 gap-10 text-center"
+    >
+      <div>
+        <h3 lang="id" class="text-mandiri-yellow text-lg">FORMULIR UJI KOMPETENSI</h3>
+        <h3 lang="en" class="text-mandiri-yellow text-lg">COMPETENCY TEST FORM</h3>
+        <h2 lang="id" class="text-mandiri-dark text-xl md:text-2xl xl:text-3xl font-bold">
+          Alur Proses Uji Kompetensi
+        </h2>
+        <h2 lang="en" class="text-mandiri-dark text-xl md:text-2xl xl:text-3xl font-bold">
+          Competency Test Process Flow
+        </h2>
+      </div>
+      <img
+        src="https://mandiriclick-pilot.csod.com/clientimg/mandiriclick/welcome/lsp1/flowchart2.png"
+        usemap="#image-map"
+        class="w-full xl:w-1/2"
+      />
+
+      <map name="image-map">
+        <area
+          id="btn-dokumen"
+          data-name="modal-dokumen"
+          class="btn-modal-uji cursor-pointer"
+          alt="dokumen permohonan"
+          title="dokumen permohonan"
+          coords="378,2,827,74"
+          shape="rect"
+        />
+        <area
+          id="btn-verifikasi"
+          data-name="modal-verifikasi"
+          class="btn-modal-uji cursor-pointer"
+          alt="verifikasi permohonan"
+          title="verifikasi permohonan"
+          coords="368,102,832,174"
+          shape="rect"
+        />
+        <area
+          id="btn-peserta"
+          data-name="modal-peserta"
+          class="btn-modal-uji cursor-pointer"
+          alt="memenuhi syarat sebagai peserta uji"
+          title="memenuhi syarat sebagai peserta uji"
+          coords="377,202,823,281"
+          shape="rect"
+        />
+        <area
+          id="btn-konsultasi"
+          data-name="modal-konsultasi"
+          class="btn-modal-uji cursor-pointer"
+          alt="konsultasi pre asesmen"
+          title="konsultasi pre asesmen"
+          coords="377,303,826,384"
+          shape="rect"
+        />
+        <area
+          id="btn-portfolio"
+          data-name="modal-portfolio"
+          class="btn-modal-uji cursor-pointer"
+          alt="asesmen portfolio"
+          title="asesmen portfolio"
+          coords="21,446,469,522"
+          shape="rect"
+        />
+        <area
+          id="btn-uji"
+          data-name="modal-uji"
+          class="btn-modal-uji cursor-pointer"
+          alt="asessmen uji kompetensi"
+          title="asessmen uji kompetensi"
+          coords="730,446,1179,522"
+          shape="rect"
+        />
+        <area alt="tl+t" title="tl+t" coords="18,551,469,621" shape="rect" />
+        <area alt="l+t" title="l+t" coords="727,548,1178,625" shape="rect" />
+        <area
+          id="btn-kompetensi"
+          data-name="modal-uji"
+          class="btn-modal-uji cursor-pointer"
+          alt="kompetensi"
+          title="kompetensi"
+          coords="378,680,825,752"
+          shape="rect"
+        />
+      </map>
+    </section>
+    <section
+      class="w-full flex flex-col xl:flex-row justify-center items-center py-2 space-x-0 xl:space-x-20"
+    >
+      <img
+        src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/footer-2.png"
+        alt="footer"
+        class="w-[80%] xl:w-auto"
+      />
+      <div
+        class="space-y-2 w-full xl:w-auto flex flex-col items-center xl:items-start mt-2 xl:mt-0"
+      >
+        <h2 class="text-mandiri-dark text-2xl">LSP Bank Mandiri</h2>
+        <div class="flex flex-row justify-start">
+          <i class="fa-solid fa-location-dot p-1"></i>
+          <p lang="id" class="text-mandiri-blue text-base">
+            Lantai 5 Menara Mandiri <br />
+            Komplek Wijaya Kusuma <br />
+            Jl. Raya Daan Mogot No. 3 <br />
+            Grogol Petamburan - Jakarta Barat 11460
+          </p>
+          <p lang="en" class="text-mandiri-blue text-base">
+            5th Floor of Mandiri Tower <br />
+            Wijaya Kusuma Complex <br />
+            Jl. Raya Daan Mogot No.3 <br />
+            Grogol Petamburan - West Jakarta 11460
+          </p>
+        </div>
+        <a
+          href="https://g.co/kgs/4GnFr38"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="italic border p-2 border-mandiri-blue rounded-md text-mandiri-blue hover:bg-mandiri-light-400 hover:border-mandiri-light-400 hover:text-white"
+        >
+          <span lang="id"> Lihat Lokasi </span>
+          <span lang="en"> See Location </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- General Banking -->
+    <div
+      id="modal-general-banking"
+      data-target="modal-general-banking"
+      class="modal-skema max-h-full w-full h-full flex flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative flex flex-col items-center justify-center no-scrollbar">
+          <button
+            id="btn-modal-close"
+            class="btn-close text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md text-lg">
+            <h2 class="text-mandiri-dark font-bold text-3xl">General Banking</h2>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5">
+              <h3 lang="id" class="text-mandiri-blue text-xl">Detail Program</h3>
+              <h3 lang="en" class="text-mandiri-blue text-xl">Program Details</h3>
+              <p lang="id" class="text-mandiri-blue">
+                Skema sertifikasi KKNI Kualifikasi IV Bidang General Banking Level 1 (Officer)
+                adalah skema sertifikasi yang dikembangkan oleh Komite Skema LSP Bank Mandiri untuk
+                memenuhi kebutuhan sertifikasi kompetensi kerja di LSP Bank Mandiri. Kemasan yang
+                digunakan mengacu pada Standar Kompetensi Kerja Nasional Indonesia (SKKNI)
+                berdasarkan Keputusan Menteri Tenaga Kerja dan Transmigrasi Republik Indonesia Nomor
+                KEP.216/MEN/VII/2009 Tentang Penetapan Standar Kompetensi Kerja Nasional Indonesia
+                Sektor Perantara Keuangan Sub Sektor Jasa Penunjang Perantara Keuangan Bidang
+                General Banking.
+              </p>
+              <p lang="en" class="text-mandiri-blue">
+                The KKNI Qualification IV General Banking Level 1 (Officer) certification scheme is
+                a certification scheme developed by the Bank Mandiri LSP Scheme Committee to fulfill
+                the the needs of work competency certification at LSP Bank Mandiri. The packaging
+                used refers to the Indonesian National Work Competency Standards (SKKNI) based on
+                the Decree of the Minister of Manpower and Transmigration of the Republic of
+                Indonesia. Minister of Manpower and Transmigration of the Republic of Indonesia
+                Number KEP.216/MEN/VII/2009 About the Determination of Indonesian National
+                Competency Standards for the Financial Intermediary Sector Sub-sector of Financial
+                Intermediary Support Services in the General Banking Sector.
+              </p>
+            </div>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md px-5 py-7">
+              <h3 lang="id" class="text-mandiri-dark font-bold text-xl">Kompetensi</h3>
+              <h3 lang="en" class="text-mandiri-dark font-bold text-xl">Competency</h3>
+              <ol lang="id" class="text-mandiri-blue text-md">
+                <li>Berkomunikasi di tempat kerja</li>
+                <li>
+                  Merencanakan, Mempersiapkan dan Melaksanakan Kegiatan Penjualan Produk dan Jasa
+                  Perbankan
+                </li>
+                <li>Menerapkan Standar Layanan Perbankan</li>
+                <li>Mensupervisi Transaksi Keuangan Bank</li>
+                <li>Melakukan Supervisi Transaksi Dana Pihak Ketiga</li>
+                <li>Melakukan Supervisi Transaksi atas Jasa Pembayaran</li>
+                <li>Menerapkan Dasar Proses Transaksi jual beli valuta asing</li>
+                <li>Melaksanakan Supervisi Proses Transaksi Trade Services</li>
+                <li>Melaksanakan Analisa Kredit</li>
+                <li>Melaksanakan Administrasi Kredit</li>
+                <li>Merekomendasikan Jenis Investasi</li>
+                <li>Melaksanakan Pemantauan Transaksi Sesuai Aspek Hukum Perbankan</li>
+                <li>Melaksanakan Regulasi Internal dan Eksternal</li>
+                <li>Menggunakan Sistim/ Aplikasi Teknologi Informasi Perbankan</li>
+                <li>Menginterpretasikan Laporan Keuangan Bank</li>
+                <li>Mengindentifikasi Risiko Perbankan</li>
+                <li>Menindaklanjuti Hasil Audit</li>
+              </ol>
+              <ol lang="en" class="text-mandiri-blue text-md">
+                <li>Communicating in the workplace</li>
+                <li>
+                  Plan, Prepare and Implement Sales Activities of Products and Services Banking
+                </li>
+                <li>Implementing Banking Service Standards</li>
+                <li>Supervising Bank Financial Transactions</li>
+                <li>Supervising Third Party Fund Transactions</li>
+                <li>Supervising Transactions on Payment Services</li>
+                <li>Apply the basic process of foreign exchange buying and selling transactions</li>
+                <li>Supervise Trade Services Transaction Process</li>
+                <li>Carry out Credit Analysis</li>
+                <li>Carry out Credit Administration</li>
+                <li>Recommend Investment Types</li>
+                <li>
+                  Carry out Transaction Monitoring in accordance with Legal Aspects of Banking
+                </li>
+                <li>Implement Internal and External Regulations</li>
+                <li>Using Banking Information Technology Systems/Applications</li>
+                <li>Interpreting Bank Financial Statements</li>
+                <li>Identifying Banking Risks</li>
+                <li>Follow up on Audit Results</li>
+              </ol>
+            </div>
+            <button
+              class="btn-modal-registrasi text-lg w-40 bg-mandiri-dark hover:bg-mandiri-light-400 transition-all ease-in-out text-white rounded-xl px-3 py-1"
+              id="btn-registrasi-general-banking"
+              data-name="modal-skema-general-banking"
+            >
+              <div class="flex flex-row items-center font-bold justify-center">
+                <img
+                  src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/frame.png"
+                  alt="frame"
+                  class="pt-2"
+                />
+                <p lang="id">Registrasi</p>
+                <p lang="en">Registration</p>
+              </div>
+            </button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      id="modal-infrastruktur"
+      data-target="modal-infrastruktur"
+      class="modal-skema max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative flex flex-col items-center justify-center no-scrollbar">
+          <button
+            id="btn-modal-infrastruktur-close"
+            class="btn-close text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md text-lg">
+            <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">Infrastruktur</h2>
+            <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">Infrastructure</h2>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5">
+              <h3 lang="id" class="text-mandiri-blue text-xl">Detail Program</h3>
+              <h3 lang="en" class="text-mandiri-blue text-xl">Program Details</h3>
+              <p lang="id" class="text-mandiri-blue">
+                Skema Sertifikasi Okupasi Instruktur merupakan Skema Sertifikasi  yang dikembangkan
+                oleh Komite Skema Sertifikasi Lembaga Sertifikasi Profesi Bank Mandiri,  Kemasan
+                Kompetensi dibuat mengacu pada Standar Kompetensi Kerja Nasional Indonesia (SKKNI)
+                yang ditetapkan berdasarkan Keputusan Menteri Ketenagakerjaan Republik Indonesia
+                Nomor  333 Tahun 2020 Tentang Penetapan Standar Kompetensi Kerja Nasional Indonesia
+                Kategori Aktivitas Penyewaan Dan Sewa Guna Usaha Tanpa Hak Opsi, Ketenagakerjaan,
+                Agen Perjalanan dan Penunjang Usaha Lainnya Golongan Pokok Aktivitas Ketenagakerjaan
+                Bidang Standardisasi, Pelatihan Kerja dan Sertifikasi serta  Keputusan Direktur
+                Jenderal Pembinaan Pelatihan Vokasi dan Produktivitas Nomor 2/1645/LP.00.01/XII/2021
+                Tentang Pengemasan Unit Kompetensi Bidang Pelatihan Kerja.
+              </p>
+              <p lang="en" class="text-mandiri-blue">
+                The Instructor Occupational Certification Scheme is a Certification Scheme developed
+                by the Certification Scheme Committee of the Bank Mandiri Professional Certification
+                Institute, Competency Packaging Competency Packaging is made in reference to the
+                Indonesian National Work Competency Standards (SKKNI) which is stipulated based on
+                the Decree of the Minister of Manpower of the Republic of Indonesia Number 333 of
+                2020 Regarding the Determination of the Indonesian National Work Competency
+                Standards Activity Category Rental and Leasing Without Option Rights, Employment,
+                Travel Agencies and Other Supporting Businesses Other Supporting Businesses Main
+                Group of Employment Activities in the Field of Standardization, Job Training and
+                Certification and Decree of the Director General of Training Development Vocational
+                Training and Productivity Number 2/1645/LP.00.01/XII/2021 concerning Packaging of
+                Competency Units in the Field of Vocational Training. Competencies in the Field of
+                Job Training.
+              </p>
+            </div>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md px-5 py-7">
+              <h3 lang="id" class="text-mandiri-dark font-bold text-xl">Kompetensi</h3>
+              <h3 lang="en" class="text-mandiri-dark font-bold text-xl">Competency</h3>
+              <ol lang="id" class="text-mandiri-blue text-lg">
+                <li>Menyusun Program Pelatihan Kerja</li>
+                <li>Merencanakan Penyajian Materi Pelatihan Kerja</li>
+                <li>Merencanakan Evaluasi Hasil Pembelajaran</li>
+                <li>Melaksanakan Pelatihan Tatap Muka (Face to Face)</li>
+                <li>Menerapkan Keselamatan dan Kesehatan Kerja (K3) di Lembaga Pelatihan Kerja</li>
+                <li>
+                  Mengelola Pemenuhan PersyaratanBahasa, Literasi, dan Berhitung dalam Proses
+                  Pembelajaran
+                </li>
+                <li>Menilai Kemajuan Kompetensi Peserta Pelatihan Secara Individu</li>
+                <li>Menentukan Kebutuhan Pelatihan Individu</li>
+                <li>Merancang Strategi Pembelajaran</li>
+                <li>Mengelola Bahan Pelatihan Kerja</li>
+                <li>Mengelola Peralatan Pelatihan Kerja</li>
+                <li>Menyiapkan Pelaksanaan Pelatihan atau Asesmen Berbasis Kompetensi</li>
+                <li>Melaksanakan Pelatihan Berbasis Kompetensi (PBK)</li>
+                <li>Melakukan Asesmen Berbasis Kompetensi</li>
+              </ol>
+              <ol lang="en" class="text-mandiri-blue text-lg">
+                <li>Develop a Job Training Program</li>
+                <li>Planning the Presentation of Job Training Materials</li>
+                <li>Planning Learning Outcome Evaluation</li>
+                <li>Conducting Face to Face Training</li>
+                <li>
+                  Implementing Occupational Safety and Health (OHS) in Vocational Training
+                  Institutions
+                </li>
+                <li>
+                  Managing Language, Literacy and Numeracy Requirements in the Learning Process
+                  Learning
+                </li>
+                <li>Assess Competency Progress of Individual Trainees</li>
+                <li>Determining Individual Training Needs</li>
+                <li>Designing a Learning Strategy</li>
+                <li>Managing Occupational Training Materials</li>
+                <li>Managing Job Training Equipment</li>
+                <li>Setting up Competency-Based Training or Assessment Implementation</li>
+                <li>Implement competency-based training (PBK)</li>
+                <li>Conducting Competency-Based Assessments</li>
+              </ol>
+            </div>
+            <button
+              class="btn-modal-registrasi text-lg w-40 bg-mandiri-dark hover:bg-mandiri-light-400 transition-all ease-in-out text-white rounded-xl px-3 py-1"
+              id="btn-registrasi-infrastruktur"
+              data-name="modal-skema-infrastruktur"
+            >
+              <div class="flex flex-row items-center font-bold justify-center">
+                <img
+                  src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/frame.png"
+                  alt="frame"
+                  class="pt-2"
+                />
+                <p lang="id">Registrasi</p>
+                <p lang="en">Registration</p>
+              </div>
+            </button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="modal-kepatuhan"
+      data-target="modal-kepatuhan"
+      class="modal-skema max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative flex flex-col items-center justify-center no-scrollbar">
+          <button
+            id="btn-modal-kepatuhan-close"
+            class="btn-close text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md text-lg">
+            <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">Kepatuhan</h2>
+            <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">Compliance</h2>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5">
+              <h3 lang="id" class="text-mandiri-blue text-xl">Detail Program</h3>
+              <h3 lang="en" class="text-mandiri-blue text-xl">Program Details</h3>
+              <p lang="id" class="text-mandiri-blue">
+                Skema Sertifikasi KKNI Kualifikasi V Bidang Kepatuhan Sub Bidang Bank Umum adalah
+                skema sertifikasi  yang dikembangkan oleh Komite Skema LSP Bank Mandiri  untuk
+                memenuhi kebutuhan sertifikasi kompetensi kerja di LSP Bank Mandiri.   Kemasan yang
+                digunakan mengacu pada Standar Kompetensi Kerja Nasional Indonesia (SKKNI)
+                berdasarkan Keputusan Menteri Ketenagakerjaan Republik Indonesia Nomor 143 Tahun
+                2022 tentang Penetapan Standar Kompetensi Kerja Nasional Indonesia Kategori
+                Aktivitas Keuangan dan Asuransi Golongan Pokok Aktivitas Jasa Keuangan, Bukan
+                Asuransi dan Dana Pensiun, Golongan Pokok Asuransi, Penjaminan, Reasuransi, dan Dana
+                Pensiun, Bukan Jaminan Sosial Wajib, Golongan Pokok Aktivitas Penunjang Jasa
+                Keuangan, Asuransi, Penjaminan, dan Dana Pensiun Bidang Kepatuhan serta Keputusan
+                Anggota Dewan Komisioner Otoritas Jasa Keuangan Nomor KEP-2/D.01/2023 tentang
+                Kerangka Kualifikasi Nasional Indonesia Bidang Kepatuhan.
+              </p>
+              <p lang="en" class="text-mandiri-blue">
+                KKNI Certification Scheme Qualification V Compliance Sub-Field of Commercial Banks
+                is a certification scheme developed by LSP Bank Mandiri. scheme developed by the
+                Bank Mandiri LSP Scheme Committee to fulfill the the needs of work competency
+                certification at LSP Bank Mandiri. The packaging used refers to the Indonesian
+                National Work Competency Standards (SKKNI) based on the Decree of the Minister of
+                Manpower of the Republic of Indonesia Number 143 Year Minister of Manpower of the
+                Republic of Indonesia Number 143 of 2022 concerning the Determination of the
+                Indonesian National Competency Standards for Financial and Insurance Activities
+                Category Principal Group Financial Services Activities, Not Insurance and Pension
+                Funds, Principal Group Insurance, Guarantee, Reinsurance, and Pension Funds, Not
+                Compulsory Social Security, Principal Group Principal Activity Supporting Financial
+                Services, Insurance, Guarantee, and Pension Funds Sector Compliance and Decision of
+                the Members of the Board of Commissioners of the Financial Services Authority Number
+                KEP-2/D.01/2023 concerning the Indonesian National Qualification Framework for
+                Compliance.
+              </p>
+            </div>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md px-5 py-7">
+              <h3 lang="id" class="text-mandiri-dark font-bold text-xl">Kompetensi</h3>
+              <h3 lang="en" class="text-mandiri-dark font-bold text-xl">Competency</h3>
+              <ol lang="id" class="text-mandiri-blue text-md">
+                <li>Mengelola Risiko Kepatuhan</li>
+                <li>
+                  Memastikan Kepatuhan Terhadap Ketentuan Peraturan Perundang- undangan dan Komitmen
+                  Bank Umum Kepada Otoritas Pengawas
+                </li>
+                <li>Memberikan Advis dan/atau Opini Kepatuhan</li>
+                <li>Melaksanakan Koordinasi Dengan Regulator dan Pihak Eksternal Lainnya</li>
+                <li>
+                  Melaksanakan Program Pengembangan Kapabilitas Sumber Daya Manusia Dalam Mendukung
+                  Penerapan Fungsi Kepatuhan
+                </li>
+                <li>Menyusun Laporan Kepatuhan Bank Umum</li>
+              </ol>
+              <ol lang="en" class="text-mandiri-blue text-md">
+                <li>Managing Compliance Risk</li>
+                <li>
+                  Ensuring Compliance with the Provisions of Laws and Regulations and Commitments of
+                  Commercial Banks to the Supervisory Authority Commercial Banks to the Supervisory
+                  Authority
+                </li>
+                <li>Providing Compliance Advice and/or Opinion</li>
+                <li>Coordinating with Regulators and Other External Parties</li>
+                <li>
+                  Implementing Human Resources Capability Development Program in Supporting
+                  Implementation of Compliance Function
+                </li>
+                <li>Preparing Commercial Bank Compliance Report</li>
+              </ol>
+            </div>
+            <button
+              class="btn-modal-registrasi text-lg w-40 bg-mandiri-dark hover:bg-mandiri-light-400 transition-all ease-in-out text-white rounded-xl px-3 py-1"
+              id="btn-registrasi-kepatuhan"
+              data-name="modal-skema-kepatuhan"
+            >
+              <div class="flex flex-row items-center font-bold justify-center">
+                <img
+                  src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/frame.png"
+                  alt="frame"
+                  class="pt-2"
+                />
+                <p lang="id">Registrasi</p>
+                <p lang="en">Registration</p>
+              </div>
+            </button>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div
+      id="modal-feedback"
+      data-target="modal-feedback"
+      class="modal-skema max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative flex flex-col items-center justify-center no-scrollbar">
+          <button
+            id="btn-modal-feedback-close"
+            class="btn-close text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md">
+            <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">
+              Mengelola Umpan Balik Pelanggan
+            </h2>
+            <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">
+              Managing Customer Feedback
+            </h2>
+            <div
+              class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5 text-lg"
+            >
+              <h3 lang="id" class="text-mandiri-blue text-xl">Detail Program</h3>
+              <h3 lang="en" class="text-mandiri-blue text-xl">Program Details</h3>
+              <p lang="id" class="text-mandiri-blue">
+                Skema sertifikasi Klaster Mengelola Umpan Balik Pelanggan adalah skema sertifikasi
+                klaster yang  dikembangkan oleh Komite Skema LSP Bank Mandiri untuk memenuhi
+                kebutuhan sertifikasi kompetensi kerja di LSP Bank Mandiri. Kemasan yang digunakan
+                mengacu pada Standar Kompetensi Kerja Nasional Indonesia (SKKNI) berdasarkan
+                Keputusan Menteri Ketenagakerjaan Republik Indonesia Nomor 170 Tahun 2016 Tentang
+                Penetapan Standar Kompetensi Kerja Nasional Indonesia Kategori Jasa Profesional,
+                Ilmiah Dan Teknis Golongan Pokok Kegiatan Kantor Pusat Dan Konsultasi Manajemen
+                Bidang Manajemen Hubungan Pelanggan (Customer Relationship Management).
+              </p>
+              <p lang="en" class="text-mandiri-blue">
+                The Managing Customer Feedback Cluster certification scheme is a cluster
+                certification scheme developed by the Bank Mandiri LSP Scheme Committee. developed
+                by the Bank Mandiri LSP Scheme Committee to meet the needs of the Bank Mandiri LSP.
+                certification of work competencies at LSP Bank Mandiri. The packaging used refers to
+                Indonesian National Work Competency Standards (SKKNI) based on the Decree of the
+                Minister of Manpower of the Republic of Indonesia Number 170 of 2016. Minister of
+                Manpower of the Republic of Indonesia Number 170 of 2016 Regarding the Determination
+                of Indonesian National Competency Standards for Professional Services National Work
+                Competency Standards Indonesia Category Professional, Scientific and Technical
+                Services Main Group of Activities of Head Office and Management Consulting in the
+                Field of Relationship Management Customer Relationship Management.
+              </p>
+            </div>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md px-5 py-7">
+              <h3 lang="id" class="text-mandiri-dark font-bold text-xl">Kompetensi</h3>
+              <h3 lang="en" class="text-mandiri-dark font-bold text-xl">Competency</h3>
+              <ol lang="id" class="text-mandiri-blue text-lg">
+                <li>Menyusun Data Pelanggan</li>
+                <li>Mengelola Data Pelanggan</li>
+                <li>Menyusun Rencana Pertemuan Pelanggan</li>
+                <li>Mengelola Pertemuan Pelanggan</li>
+                <li>Melayani Kebutuhan Informasi Bagi Pelanggan</li>
+                <li>Menangani Keluhan Pelanggan</li>
+                <li>Mengukur Kepuasan Pelanggan</li>
+                <li>Merancang Program Loyalitas Pelanggan</li>
+                <li>Mengelola Program Loyalitas Pelanggan</li>
+              </ol>
+              <ol lang="en" class="text-mandiri-blue text-lg">
+                <li>Compile Customer Data</li>
+                <li>Manage Customer Data</li>
+                <li>Develop a Customer Meeting Plan</li>
+                <li>Managing Customer Meetings</li>
+                <li>Serving Information Needs for Customers</li>
+                <li>Handling Customer Complaints</li>
+                <li>Measuring Customer Satisfaction</li>
+                <li>Designing a Customer Loyalty Program</li>
+                <li>Managing Customer Loyalty Programs</li>
+              </ol>
+            </div>
+            <button
+              class="btn-modal-registrasi text-lg w-40 bg-mandiri-dark hover:bg-mandiri-light-400 transition-all ease-in-out text-white rounded-xl px-3 py-1"
+              id="btn-registrasi-feedback"
+              data-name="modal-skema-feedback"
+            >
+              <div class="flex flex-row items-center font-bold justify-center">
+                <img
+                  src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/frame.png"
+                  alt="frame"
+                  class="pt-2"
+                />
+                <p lang="id">Registrasi</p>
+                <p lang="en">Registration</p>
+              </div>
+            </button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="modal-software"
+      data-target="modal-software"
+      class="modal-skema max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative flex flex-col items-center justify-center no-scrollbar">
+          <button
+            id="btn-modal-software-close"
+            class="btn-close text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md text-lg">
+            <h2 class="text-mandiri-dark font-bold text-3xl">Basic Software Development</h2>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5">
+              <h3 lang="id" class="text-mandiri-blue text-xl">Detail Program</h3>
+              <h3 lang="en" class="text-mandiri-blue text-xl">Program Details</h3>
+              <p lang="id" class="text-mandiri-blue">
+                Skema Sertifikasi Klaster Basic Software Development adalah skema sertifikasi
+                klaster yang  dikembangkan oleh Komite Skema LSP Bank Mandiri untuk memenuhi
+                kebutuhan sertifikasi kompetensi kerja di LSP Bank Mandiri. Kemasan yang digunakan
+                mengacu pada Standar Kompetensi Kerja Nasional Indonesia (SKKNI) berdasarkan
+                Keputusan Menteri Ketenagakerjaan Republik Indonesia Nomor 282 Tahun 2016 Tentang
+                Penetapan Standar Kompetensi Kerja Nasional Indonesia Kategori Informasi Dan
+                Komunikasi Golongan Pokok Aktivitas Pemrograman, Konsultasi Komputer Dan Kegiatan
+                Yang Berhubungan Dengan Itu (YBDI) Bidang Software Development Subbidang
+                Pemrograman.
+              </p>
+              <p lang="en" class="text-mandiri-blue">
+                Basic Software Development Cluster Certification Scheme is a cluster certification
+                scheme developed by the scheme developed by the Bank Mandiri LSP Scheme Committee to
+                fulfill the needs of certification of work competencies at LSP Bank Mandiri. The
+                packaging used refers to Indonesian National Work Competency Standards (SKKNI) based
+                on the Decree of the Minister of Manpower of the Republic of Indonesia No. 282 of
+                2016 on the Minister of Manpower of the Republic of Indonesia Number 282 of 2016
+                concerning the Determination of Indonesian National Competency Standards in the
+                National Work Competency Standards Indonesia Category Information and Communication
+                Principal Group Programming Activities, Computer Consulting and Related Activities
+                (YBDI) Software Development Subfield of Programming.
+              </p>
+            </div>
+            <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md px-5 py-7">
+              <h3 lang="id" class="text-mandiri-dark font-bold text-xl">Kompetensi</h3>
+              <h3 lang="en" class="text-mandiri-dark font-bold text-xl">Competency</h3>
+              <ol lang="id" class="text-mandiri-blue text-md">
+                <li>
+                  Menerapkan Perintah Eksekusi Bahasa Pemrograman Berbasis Teks, Grafik, dan
+                  Multimedia
+                </li>
+                <li>Melakukan Instalasi Software Tools Pemrograman</li>
+                <li>Melakukan pengaturan software tools pemrograman</li>
+                <li>Menerapkan Pemecahan Permasalahan Menjadi Subrutin</li>
+                <li>
+                  Menerapkan metode dan praktik penggunaan kembali (reusable) subrutin-subrutin
+                </li>
+                <li>Mengimplementasikan Pemrograman Terstruktur</li>
+                <li>Mengimplementasikan Pemrograman Berorientasi Objek</li>
+                <li>Melakukan Migrasi ke Teknologi Baru</li>
+                <li>Melakukan Debugging</li>
+                <li>Menggunakan Source Code Versioning</li>
+              </ol>
+              <ol lang="en" class="text-mandiri-blue text-md">
+                <li>
+                  Apply Text, Graphics, and Multimedia-based Programming Language Execution Commands
+                </li>
+                <li>Installing Programming Software Tools</li>
+                <li>Set up programming software tools</li>
+                <li>Implementing Problem Solving into Subroutines</li>
+                <li>Implement methods and practices for reusing subroutin</li>
+                <li>Implementing Structured Programming</li>
+                <li>Implementing Object-Oriented Programming</li>
+                <li>Migrating to New Technology</li>
+                <li>Debugging</li>
+                <li>Using Source Code Versioning</li>
+              </ol>
+            </div>
+            <button
+              class="btn-modal-registrasi text-lg w-40 bg-mandiri-dark hover:bg-mandiri-light-400 transition-all ease-in-out text-white rounded-xl px-3 py-1"
+              id="btn-registrasi-software"
+              data-name="modal-skema-software"
+            >
+              <div class="flex flex-row items-center font-bold justify-center">
+                <img
+                  src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/frame.png"
+                  alt="frame"
+                  class="pt-2"
+                />
+                <p lang="id">Registrasi</p>
+                <p lang="en">Registration</p>
+              </div>
+            </button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Asesor -->
+    <div
+      id="modal-table-asesor"
+      class="modal-table-asesor hidden max-h-full w-full h-full flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 overflow-x-auto no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div
+          class="relative w-full h-full flex flex-col items-center justify-center overflow-x-auto"
+        >
+          <button
+            id="btn-close-table-asesor"
+            class="text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="flex flex-col gap-5 p-2 w-[90%] bg-[#FAFAFA] rounded-xl overflow-x-auto">
+            <div class="w-full flex items-center justify-center">
+              <p class="font-light text-lg uppercase">List Nama Asesor</p>
+            </div>
+            <div class="table-asesor w-full relative overflow-x-auto">
+              <table id="myTable" class="text-sm text-black" style="width: 100%"></table>
+              <div class="error-message"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup Penjelasan Formulir Asesi -->
+
+    <div
+      id="popup-asesi"
+      class="max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative w-full h-full flex flex-col items-center justify-center">
+          <button
+            id="btn-popup-asesi-close"
+            class="text-white text-3xl w-full xl:w-[65%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section
+            class="flex flex-col gap-5 p-10 w-full xl:w-[60%] bg-[#FAFAFA] rounded-xl text-lg"
+          >
+            <p lang="id" class="text-mandiri-dark text-xl lg:text-2xl font-bold text-center">
+              Petunjuk Pencarian Nama Asesi
+            </p>
+            <p lang="en" class="text-mandiri-dark text-xl lg:text-2xl font-bold text-center">
+              Instructions for Searching Names of Assessors
+            </p>
+            <div class="flex flex-col gap-5">
+              <div class="flex flex-col items-center xl:items-start">
+                <div class="w-full">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">1. Cari Nama Asesi</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                      1. Search Asesor Name
+                    </p>
+                  </div>
+                  <div class="w-full">
+                    <img
+                      src="https://mandiriclick-pilot.csod.com/clientimg/mandiriclick/welcome/asesi-1.png"
+                      alt="tutorial formulir isian asesor"
+                      class="w-full lg:w-1/2"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p lang="id" class="text-mandiri-black">
+                    Cari nama asesor pada kolom pencarian, kemudian klik nama yang tampil, nanti
+                    akan diarahkan ke halaman profil nama pegawai yang dicari.
+                  </p>
+                  <p lang="en" class="text-mandiri-black">
+                    Look for the name of the assessor in the search column, then click on the name
+                    that appears, you will be directed to the profile page for the name of the
+                    employee you are looking for.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col items-center xl:items-start">
+                <div class="w-full">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p class="text-mandiri-dark text-xl font-bold">2. Profile Snapshot</p>
+                  </div>
+                  <div class="w-full">
+                    <img
+                      src="https://mandiriclick-pilot.csod.com/clientimg/mandiriclick/welcome/asesi-2.png"
+                      alt="tutorial formulir isian asesor"
+                      class="w-full lg:w-1/2"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p lang="id" class="text-mandiri-black">
+                    Setelah itu, klik tab Snapshot pada jendela bagian atas halaman profil
+                  </p>
+                  <p lang="en" class="text-mandiri-black">
+                    After that, click the Snapshot tab in the window at the top of the profile page
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col items-center xl:items-start gap-2">
+                <div class="w-full">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">3. Cari Dokumen LSP</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                      3. Search for LSP documents
+                    </p>
+                  </div>
+                  <div class="w-full">
+                    <img
+                      src="https://mandiriclick-pilot.csod.com/clientimg/mandiriclick/welcome/asesi-3.png"
+                      loading="lazy"
+                      alt="tutorial formulir isian asesor"
+                      class="w-full lg:w-1/2"
+                    />
+                  </div>
+                  <p lang="id" class="text-mandiri-black">Pada tab Snapshot, klik bagian dokumen</p>
+                  <p lang="en" class="text-mandiri-black">
+                    On the Snapshot tab, click the document section
+                  </p>
+                </div>
+                <div class="w-full">
+                  <div class="w-full">
+                    <img
+                      loading="lazy"
+                      src="https://mandiriclick-pilot.csod.com/clientimg/mandiriclick/welcome/asesi-4.png"
+                      alt="tutorial formulir isian asesor"
+                      class="w-full lg:w-1/2"
+                    />
+                  </div>
+                  <p lang="id" class="text-mandiri-black">Selanjutnya, cari folder LSP File</p>
+                  <p lang="en" class="text-mandiri-black">Next, look for the LSP File folder</p>
+                </div>
+              </div>
+
+              <div class="w-full flex items-center justify-center">
+                <a
+                  href="https://mandiriclick-pilot.csod.com/GlobalSearch/search.aspx?s=&q=oke#q=&s=2&a="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-mandiri-dark hover:bg-mandiri-light-400 transition-all ease-in-out text-white rounded-xl px-3 py-2"
+                  lang="id"
+                >
+                  Formulir Isian Asesi
+                </a>
+                <a
+                  class="bg-mandiri-dark hover:bg-mandiri-light-400 transition-all ease-in-out text-white rounded-xl px-3 py-2"
+                  href="https://mandiriclick-pilot.csod.com/GlobalSearch/search.aspx?s=&q=oke#q=&s=2&a="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  lang="en"
+                  >Assessment Form</a
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registrasi -->
+    <div
+      id="modal-skema-general-banking"
+      data-target="modal-skema-general-banking"
+      class="modal-registrasi max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative w-full h-full flex flex-col items-center justify-center">
+          <button
+            id="btn-modal-skema-general-close"
+            class="btn-close-registrasi text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="flex flex-col xl:flex-row gap-5 p-10 w-[90%] bg-[#FAFAFA] rounded-xl">
+            <div>
+              <h2 lang="id" class="text-mandiri-yellow text-lg">REGISTRASI GENERAL BANKING</h2>
+              <h2 lang="en" class="text-mandiri-yellow text-lg">REGISTRATION GENERAL BANKING</h2>
+              <h3 lang="id" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Pendaftaran Dan Seleksi Calon Peserta Asesmen
+              </h3>
+              <h3 lang="en" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Registration and Selection of Assessment Candidates
+              </h3>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-target.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                      1. Permohonan Sertifikasi
+                    </p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                      1. Application for Certification
+                    </p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Permohonan Sertifikasi Kompetensi (FR.APL.01), mengisi dan
+                    melengkapi dokumen antara lain Data Pribadi, Data Pekerjaan Sekarang, Data
+                    Sertifikasi.
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits an Application for Competency Certification (FR.APL.01),
+                    fill in and complete documents including Personal Data, Current Job Data,
+                    Certification Data.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-users.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">2. Asesmen Mandiri</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">2. Self-Assessment</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAi4DfXqz2s9fPg1abr4ra4EQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAi4DfXqz2s9fPg1abr4ra4EQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Formulir Asesmen Mandiri (FR.APL.02), lampirkan dokumen -
+                    dokumen yang menjadi bukti bahwa asesi menyatakan kompeten sesuai dengan unit
+                    kompetensi yang disyaratkan
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits the Self-Assessment Form (FR.APL.02), attaching documents
+                    that prove that the assessee is competent in accordance with the required unit
+                    of competency.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-koper-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 flex-wrap text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">3. Asesor</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">3. Assessor</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <button class="list-nama-asesor" lang="id">List Nama Asesor</button>
+                      <button class="list-nama-asesor" lang="en">List of Names of Assessors</button>
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Jadwal Asesor</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Assessor Schedule</a
+                      >
+                      <span>|</span>
+                      <button class="btn-formulir-isian-asesi" lang="id">
+                        Formulir Isian Asesi
+                      </button>
+                      <button class="btn-formulir-isian-asesi" lang="en">Assessment Form</button>
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Profile para asesor yang telah mendapatkan register dari BNSP sebagai Asesor
+                    Kompetensi. Asesor ditunjuk oleh LSP untuk menjadi penguji kepada asesi setelah
+                    melalui analisa ketidakberpihakan dan imparsialitas
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Profile of assessors who have been registered by BNSP as Competency Assessors.
+                    Assessors are appointed by the LSP to serve as examiners to assessors after an
+                    impartiality analysis.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-user-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <a
+                  href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx#&v=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full xl:w-[80%]"
+                >
+                  <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                    4. Jadwal Uji Kompetensi
+                  </p>
+                  <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                    4. Competency Test Schedule
+                  </p>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Catatan kesepakatan waktu dan tempat untuk dilaksanakannya uji kompetensi antara
+                    Asesi dan Asesor
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Records of time and place agreements for the implementation of competency tests
+                    between assessors and assessors.
+                  </p>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div
+      id="modal-skema-infrastruktur"
+      data-target="modal-skema-infrastruktur"
+      class="modal-registrasi max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative w-full h-full flex flex-col items-center justify-center">
+          <button
+            id="btn-modal-skema-infrastruktur-close"
+            class="btn-close-registrasi text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="flex flex-col xl:flex-row gap-5 p-10 w-[90%] bg-[#FAFAFA] rounded-xl">
+            <div>
+              <h2 lang="id" class="text-mandiri-yellow text-lg">REGISTRASI INFRASTRUKTUR</h2>
+              <h2 lang="en" class="text-mandiri-yellow text-lg">REGISTRATION INFRASTRUCTURE</h2>
+              <h3 lang="id" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Pendaftaran Dan Seleksi Calon Peserta Asesmen
+              </h3>
+              <h3 lang="en" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Registration and Selection of Assessment Candidates
+              </h3>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-target.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                      1. Permohonan Sertifikasi
+                    </p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                      1. Application for Certification
+                    </p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Permohonan Sertifikasi Kompetensi (FR.APL.01), mengisi dan
+                    melengkapi dokumen antara lain Data Pribadi, Data Pekerjaan Sekarang, Data
+                    Sertifikasi.
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits an Application for Competency Certification (FR.APL.01),
+                    fill in and complete documents including Personal Data, Current Job Data,
+                    Certification Data.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-users.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">2. Asesmen Mandiri</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">2. Self-Assessment</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAiCfB03cOg6pMM6j3jqHjHNA%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAiCfB03cOg6pMM6j3jqHjHNA%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Formulir Asesmen Mandiri (FR.APL.02), lampirkan dokumen -
+                    dokumen yang menjadi bukti bahwa asesi menyatakan kompeten sesuai dengan unit
+                    kompetensi yang disyaratkan
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits the Self-Assessment Form (FR.APL.02), attaching documents
+                    that prove that the assessee is competent in accordance with the required unit
+                    of competency.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-koper-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 flex-wrap text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">3. Asesor</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">3. Assessor</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <button class="list-nama-asesor" lang="id">List Nama Asesor</button>
+                      <button class="list-nama-asesor" lang="en">List of Names of Assessors</button>
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Jadwal Asesor</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Assessor Schedule</a
+                      >
+                      <span>|</span>
+                      <button class="btn-formulir-isian-asesi" lang="id">
+                        Formulir Isian Asesi
+                      </button>
+                      <button class="btn-formulir-isian-asesi" lang="en">Assessment Form</button>
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Profile para asesor yang telah mendapatkan register dari BNSP sebagai Asesor
+                    Kompetensi. Asesor ditunjuk oleh LSP untuk menjadi penguji kepada asesi setelah
+                    melalui analisa ketidakberpihakan dan imparsialitas
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Profile of assessors who have been registered by BNSP as Competency Assessors.
+                    Assessors are appointed by the LSP to serve as examiners to assessors after an
+                    impartiality analysis.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-user-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <a
+                  href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx#&v=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full xl:w-[80%]"
+                >
+                  <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                    4. Jadwal Uji Kompetensi
+                  </p>
+                  <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                    4. Competency Test Schedule
+                  </p>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Catatan kesepakatan waktu dan tempat untuk dilaksanakannya uji kompetensi antara
+                    Asesi dan Asesor
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Records of time and place agreements for the implementation of competency tests
+                    between assessors and assessors.
+                  </p>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div
+      id="modal-skema-kepatuhan"
+      data-target="modal-skema-kepatuhan"
+      class="modal-registrasi max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative w-full h-full flex flex-col items-center justify-center">
+          <button
+            id="btn-modal-skema-kepatuhan-close"
+            class="btn-close-registrasi text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="flex flex-col xl:flex-row gap-5 p-10 w-[90%] bg-[#FAFAFA] rounded-xl">
+            <div>
+              <h2 lang="id" class="text-mandiri-yellow text-lg">REGISTRASI KEPATUHAN</h2>
+              <h2 lang="en" class="text-mandiri-yellow text-lg">REGISTRATION COMPLIANCE</h2>
+              <h3 lang="id" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Pendaftaran Dan Seleksi Calon Peserta Asesmen
+              </h3>
+              <h3 lang="en" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Registration and Selection of Assessment Candidates
+              </h3>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-target.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                      1. Permohonan Sertifikasi
+                    </p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                      1. Application for Certification
+                    </p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Permohonan Sertifikasi Kompetensi (FR.APL.01), mengisi dan
+                    melengkapi dokumen antara lain Data Pribadi, Data Pekerjaan Sekarang, Data
+                    Sertifikasi.
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits an Application for Competency Certification (FR.APL.01),
+                    fill in and complete documents including Personal Data, Current Job Data,
+                    Certification Data.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-users.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">2. Asesmen Mandiri</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">2. Self-Assessment</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAiCfB03cOg6pMM6j3jqHjHNA%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAiCfB03cOg6pMM6j3jqHjHNA%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Formulir Asesmen Mandiri (FR.APL.02), lampirkan dokumen -
+                    dokumen yang menjadi bukti bahwa asesi menyatakan kompeten sesuai dengan unit
+                    kompetensi yang disyaratkan
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits the Self-Assessment Form (FR.APL.02), attaching documents
+                    that prove that the assessee is competent in accordance with the required unit
+                    of competency.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-koper-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 flex-wrap text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">3. Asesor</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">3. Assessor</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <button class="list-nama-asesor" lang="id">List Nama Asesor</button>
+                      <button class="list-nama-asesor" lang="en">List of Names of Assessors</button>
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Jadwal Asesor</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Assessor Schedule</a
+                      >
+                      <span>|</span>
+                      <button class="btn-formulir-isian-asesi" lang="id">
+                        Formulir Isian Asesi
+                      </button>
+                      <button class="btn-formulir-isian-asesi" lang="en">Assessment Form</button>
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Profile para asesor yang telah mendapatkan register dari BNSP sebagai Asesor
+                    Kompetensi. Asesor ditunjuk oleh LSP untuk menjadi penguji kepada asesi setelah
+                    melalui analisa ketidakberpihakan dan imparsialitas
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Profile of assessors who have been registered by BNSP as Competency Assessors.
+                    Assessors are appointed by the LSP to serve as examiners to assessors after an
+                    impartiality analysis.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-user-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <a
+                  href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx#&v=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full xl:w-[80%]"
+                >
+                  <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                    4. Jadwal Uji Kompetensi
+                  </p>
+                  <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                    4. Competency Test Schedule
+                  </p>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Catatan kesepakatan waktu dan tempat untuk dilaksanakannya uji kompetensi antara
+                    Asesi dan Asesor
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Records of time and place agreements for the implementation of competency tests
+                    between assessors and assessors.
+                  </p>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div
+      id="modal-skema-feedback"
+      data-target="modal-skema-feedback"
+      class="modal-registrasi max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative w-full h-full flex flex-col items-center justify-center">
+          <button
+            id="btn-modal-skema-feedback-close"
+            class="btn-close-registrasi text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="flex flex-col xl:flex-row gap-5 p-10 w-[90%] bg-[#FAFAFA] rounded-xl">
+            <div>
+              <h2 lang="id" class="text-mandiri-yellow text-lg">
+                REGISTRASI MENGELOLA UMPAN BALIK PELANGGAN
+              </h2>
+              <h2 lang="en" class="text-mandiri-yellow text-lg">
+                REGISTRATION MANAGING CUSTOMER FEEDBACK
+              </h2>
+              <h3 lang="id" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Pendaftaran Dan Seleksi Calon Peserta Asesmen
+              </h3>
+              <h3 lang="en" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Registration and Selection of Assessment Candidates
+              </h3>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-target.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                      1. Permohonan Sertifikasi
+                    </p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                      1. Application for Certification
+                    </p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Permohonan Sertifikasi Kompetensi (FR.APL.01), mengisi dan
+                    melengkapi dokumen antara lain Data Pribadi, Data Pekerjaan Sekarang, Data
+                    Sertifikasi.
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits an Application for Competency Certification (FR.APL.01),
+                    fill in and complete documents including Personal Data, Current Job Data,
+                    Certification Data.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-users.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">2. Asesmen Mandiri</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">2. Self-Assessment</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAi4DfXqz2s9fPg1abr4ra4EQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAi4DfXqz2s9fPg1abr4ra4EQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Formulir Asesmen Mandiri (FR.APL.02), lampirkan dokumen -
+                    dokumen yang menjadi bukti bahwa asesi menyatakan kompeten sesuai dengan unit
+                    kompetensi yang disyaratkan
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits the Self-Assessment Form (FR.APL.02), attaching documents
+                    that prove that the assessee is competent in accordance with the required unit
+                    of competency.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-koper-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 flex-wrap text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">3. Asesor</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">3. Assessor</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <button class="list-nama-asesor" lang="id">List Nama Asesor</button>
+                      <button class="list-nama-asesor" lang="en">List of Names of Assessors</button>
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Jadwal Asesor</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Assessor Schedule</a
+                      >
+                      <span>|</span>
+                      <button class="btn-formulir-isian-asesi" lang="id">
+                        Formulir Isian Asesi
+                      </button>
+                      <button class="btn-formulir-isian-asesi" lang="en">Assessment Form</button>
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Profile para asesor yang telah mendapatkan register dari BNSP sebagai Asesor
+                    Kompetensi. Asesor ditunjuk oleh LSP untuk menjadi penguji kepada asesi setelah
+                    melalui analisa ketidakberpihakan dan imparsialitas
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Profile of assessors who have been registered by BNSP as Competency Assessors.
+                    Assessors are appointed by the LSP to serve as examiners to assessors after an
+                    impartiality analysis.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-user-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <a
+                  href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx#&v=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full xl:w-[80%]"
+                >
+                  <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                    4. Jadwal Uji Kompetensi
+                  </p>
+                  <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                    4. Competency Test Schedule
+                  </p>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Catatan kesepakatan waktu dan tempat untuk dilaksanakannya uji kompetensi antara
+                    Asesi dan Asesor
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Records of time and place agreements for the implementation of competency tests
+                    between assessors and assessors.
+                  </p>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div
+      id="modal-skema-software"
+      data-target="modal-skema-software"
+      class="modal-registrasi max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full max-h-full py-10 no-scrollbar overflow-y-auto">
+        <div class="relative w-full h-full flex flex-col items-center justify-center">
+          <button
+            id="btn-modal-skema-software-close"
+            class="btn-close-registrasi text-white text-3xl w-[90%] flex items-center justify-end"
+          >
+            <i class="fa-solid fa-xmark w-10 h-10"></i>
+          </button>
+          <section class="flex flex-col xl:flex-row gap-5 p-10 w-[90%] bg-[#FAFAFA] rounded-xl">
+            <div>
+              <h2 lang="id" class="text-mandiri-yellow text-lg">
+                REGISTRASI BASIC SOFTWARE DEVELOPMENT
+              </h2>
+              <h2 lang="en" class="text-mandiri-yellow text-lg">
+                REGISTRATION BASIC SOFTWARE DEVELOPMENT
+              </h2>
+              <h3 lang="id" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Pendaftaran Dan Seleksi Calon Peserta Asesmen
+              </h3>
+              <h3 lang="en" class="font-bold text-mandiri-dark text-3xl xl:text-4xl">
+                Registration and Selection of Assessment Candidates
+              </h3>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-target.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                      1. Permohonan Sertifikasi
+                    </p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                      1. Application for Certification
+                    </p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_1_PERMOHONAN_SERTIFIKASI_1X6_V2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAikDAMGoz33vbSK9cR9yRjVQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Permohonan Sertifikasi Kompetensi (FR.APL.01), mengisi dan
+                    melengkapi dokumen antara lain Data Pribadi, Data Pekerjaan Sekarang, Data
+                    Sertifikasi.
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits an Application for Competency Certification (FR.APL.01),
+                    fill in and complete documents including Personal Data, Current Job Data,
+                    Certification Data.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-users.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">2. Asesmen Mandiri</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">2. Self-Assessment</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAi4DfXqz2s9fPg1abr4ra4EQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=CustomForm/FORM_LSP_2_ASESMEN_MANDIRI_APL02_V1X5_2_frm_Edit_1&cfqs=%5e%5e%5ecsAJl9tGgheNnOyu8GlE8K6r80OhoI17mYrdxw86mqqyfExbEIrnU5YTbP2Svv8FgSnRkmhgXTrOE2Vd2J4C48aqSGGgD1Cc954k1FiWNcKwYrNZCkBr%2fm18odFjDYs1Z4IAcqcoia8N%2fvWUbFTIUqTaCUKFX4rcGsnSasW%2fyWcbQKxao12LMJ5qYkoW4wAi4DfXqz2s9fPg1abr4ra4EQ%3d%3d"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Form</a
+                      >
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Formulir Isian</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/phnx/driver.aspx?routename=Social/UniversalProfile/Snapshot/Documents/FolderDetails&Folder=16"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Filling Form</a
+                      >
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Asesi menyampaikan Formulir Asesmen Mandiri (FR.APL.02), lampirkan dokumen -
+                    dokumen yang menjadi bukti bahwa asesi menyatakan kompeten sesuai dengan unit
+                    kompetensi yang disyaratkan
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    The assessee submits the Self-Assessment Form (FR.APL.02), attaching documents
+                    that prove that the assessee is competent in accordance with the required unit
+                    of competency.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-koper-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <div class="w-full xl:w-[80%]">
+                  <div class="flex flex-col gap-1 flex-wrap text-md text-sky-600">
+                    <p lang="id" class="text-mandiri-dark text-xl font-bold">3. Asesor</p>
+                    <p lang="en" class="text-mandiri-dark text-xl font-bold">3. Assessor</p>
+                    <div class="flex flex-row gap-3 text-lg font-light">
+                      <button class="list-nama-asesor" lang="id">List Nama Asesor</button>
+                      <button class="list-nama-asesor" lang="en">List of Names of Assessors</button>
+                      <span>|</span>
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="id"
+                        >Jadwal Asesor</a
+                      >
+                      <a
+                        href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx?instructor=me&tab_page_id=-54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        lang="en"
+                        >Assessor Schedule</a
+                      >
+                      <span>|</span>
+                      <button class="btn-formulir-isian-asesi" lang="id">
+                        Formulir Isian Asesi
+                      </button>
+                      <button class="btn-formulir-isian-asesi" lang="en">Assessment Form</button>
+                    </div>
+                  </div>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Profile para asesor yang telah mendapatkan register dari BNSP sebagai Asesor
+                    Kompetensi. Asesor ditunjuk oleh LSP untuk menjadi penguji kepada asesi setelah
+                    melalui analisa ketidakberpihakan dan imparsialitas
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Profile of assessors who have been registered by BNSP as Competency Assessors.
+                    Assessors are appointed by the LSP to serve as examiners to assessors after an
+                    impartiality analysis.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col xl:flex-row items-center xl:items-start">
+                <div class="w-full xl:w-[14%]">
+                  <img
+                    src="https://mandiriclick.csod.com/clientimg/mandiriclick/welcome/lsp/icon-user-2.png"
+                    alt="icon"
+                    class="w-1/3 xl:w-auto"
+                  />
+                </div>
+                <a
+                  href="https://mandiriclick-pilot.csod.com/LMS/catalog/EventsCalendar.aspx#&v=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full xl:w-[80%]"
+                >
+                  <p lang="id" class="text-mandiri-dark text-xl font-bold">
+                    4. Jadwal Uji Kompetensi
+                  </p>
+                  <p lang="en" class="text-mandiri-dark text-xl font-bold">
+                    4. Competency Test Schedule
+                  </p>
+                  <p lang="id" class="text-mandiri-black text-lg font-light">
+                    Catatan kesepakatan waktu dan tempat untuk dilaksanakannya uji kompetensi antara
+                    Asesi dan Asesor
+                  </p>
+                  <p lang="en" class="text-mandiri-black text-lg font-light">
+                    Records of time and place agreements for the implementation of competency tests
+                    between assessors and assessors.
+                  </p>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="modal-dokumen"
+      data-target="modal-dokumen"
+      class="modal max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full h-full flex flex-col items-center justify-center">
+        <button
+          id="btn-modal-dokumen-close"
+          class="btn-modal-close text-white text-3xl w-[90%] flex items-center justify-end"
+        >
+          <i class="fa-solid fa-xmark w-10 h-10"></i>
+        </button>
+        <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md mb-20">
+          <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">Dokumen Permohonan</h2>
+          <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">Application Documents</h2>
+          <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5 text-lg">
+            <h3 lang="id" class="text-mandiri-blue text-xl">Deskripsi</h3>
+            <h3 lang="en" class="text-mandiri-blue text-xl">Description</h3>
+            <p lang="id" class="text-mandiri-blue">
+              Asesi menyampaikan permohonan yang terdiri dari 2 formulir yaitu Formulir Permohonan
+              Sertifikasi Kompetensi (FR.APL.01) dan Formulir Asesmen Mandiri (FR.APL.02)
+            </p>
+            <p lang="en" class="text-mandiri-blue">
+              The assessor submits an application consisting of 2 forms, namely the Application Form
+              Application Form for Competency Certification (FR.APL.01) and Self-Assessment Form
+              (FR.APL.02).
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div
+      id="modal-verifikasi"
+      data-target="modal-verifikasi"
+      class="modal max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full h-full flex flex-col items-center justify-center">
+        <button
+          id="btn-modal-verifikasi-close"
+          class="btn-modal-close text-white text-3xl w-[90%] flex items-center justify-end"
+        >
+          <i class="fa-solid fa-xmark w-10 h-10"></i>
+        </button>
+        <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md mb-20">
+          <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">Verifikasi Permohonan</h2>
+          <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">Application Verification</h2>
+          <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5 text-lg">
+            <h3 lang="id" class="text-mandiri-blue text-xl">Deskripsi</h3>
+            <h3 lang="en" class="text-mandiri-blue text-xl">Description</h3>
+            <p lang="id" class="text-mandiri-blue">
+              Formulir Permohonan (FR.APL.01), diverifikasi oleh bagian administrasi LSP apakah Data
+              Pribadi, Data Pekerjaan Sekarang, Data Sertifikasi, Bukti Kelengkapan Pemohon telah
+              sesuai. Setelah diperiksa direkomendasi untuk Diterima/ Tidak diterima  sebagai
+              peserta sertifikasi Formulir Asesmen Mandiri (FR.APL.02), diverifikasi oleh asesor
+              apakah bukti yang dimiliki asesi telah sesuai dengan unit kompetensi. Selanjutnya
+              Asesor memberikan rekomendasi kepada asesi bahwa asesmen dapat / tidak dapat
+              dilanjutkan.
+            </p>
+            <p lang="en" class="text-mandiri-blue">
+              The application form (FR.APL.01) is verified by the LSP administration department
+              whether the applicant's personal data, current job data, certification data, and proof
+              of completeness are appropriate. After checking, it is recommended to be Accepted /
+              Not accepted as a certification participant Self-Assessment Form (FR.APL.02), verified
+              by the assessor whether the evidence owned by the assessee is in accordance with the
+              unit of competency. Furthermore, the assessor provides a recommendation to the
+              assessee that the assessment can / cannot be continued.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div
+      id="modal-peserta"
+      data-target="modal-peserta"
+      class="modal max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full h-full flex flex-col items-center justify-center">
+        <button
+          id="btn-modal-peserta-close"
+          class="btn-modal-close text-white text-3xl w-[90%] flex items-center justify-end"
+        >
+          <i class="fa-solid fa-xmark w-10 h-10"></i>
+        </button>
+        <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md mb-20">
+          <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">
+            Memenuhi Syarat Sebagai Peserta Uji
+          </h2>
+          <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">
+            Eligible as Test Participant
+          </h2>
+          <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5 text-lg">
+            <h3 lang="id" class="text-mandiri-blue text-xl">Deskripsi</h3>
+            <h3 lang="en" class="text-mandiri-blue text-xl">Description</h3>
+            <p lang="id" class="text-mandiri-blue">
+              Asesor dan Asesi membuat kesepakatan waktu dan tempat untuk dilaksanakannya asesmen
+              Asesor memberikan dan menjelaskan Formulir tambahan untuk dilengkapi oleh asesi, yaitu
+              :
+            </p>
+            <p lang="en" class="text-mandiri-blue">
+              The assessor and the assessee make an agreement on the time and place for the
+              assessment to be carried out. The assessor provides and explains additional forms to
+              be completed by the assessee, namely:
+            </p>
+            <ol lang="id" class="text-mandiri-blue">
+              <li>Formulir Persetujuan Asesmen dan Kerahasiaan (FR.AK.01.)</li>
+              <li>Formulir Banding (FR.AK.04.)</li>
+              <li>Formulir Ceklis Penyesuaian yang Wajar (FR AK 07.)</li>
+            </ol>
+            <ol lang="en" class="text-mandiri-blue">
+              <li>Assessment and Confidentiality Consent Form (FR.AK.01.)</li>
+              <li>Appeal Form (FR.AK.04.)</li>
+              <li>Reasonable Adjustment Checklist Form (FR AK 07.)</li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div
+      id="modal-konsultasi"
+      data-target="modal-konsultasi"
+      class="modal max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full h-full flex flex-col items-center justify-center">
+        <button
+          id="btn-modal-konsultasi-close"
+          class="btn-modal-close text-white text-3xl w-[90%] flex items-center justify-end"
+        >
+          <i class="fa-solid fa-xmark w-10 h-10"></i>
+        </button>
+        <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md mb-20">
+          <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">Konsultasi Pre Asesmen</h2>
+          <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">
+            Pre-Assessment Consultation
+          </h2>
+          <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5 text-lg">
+            <h3 lang="id" class="text-mandiri-blue text-xl">Deskripsi</h3>
+            <h3 lang="en" class="text-mandiri-blue text-xl">Description</h3>
+            <p lang="id" class="text-mandiri-blue">
+              Asesor memutuskan jenis asesmen yang sesuai dengan asesi, yaitu asesmen portfolio
+              (pegawai telah mempunyai pengalaman kerja) atau asesmen uji kompetensi, (pegawai belum
+              mempunyai pengalaman kerja) dan jenis kegiatan yang akan diuji.
+            </p>
+            <p lang="en" class="text-mandiri-blue">
+              The assessor decides which type of assessment is appropriate for the assessee, i.e.
+              portfolio assessment (employee has work experience) or competency test assessment,
+              (employee has no work experience) and the type of activity to be tested. work
+              experience) and the type of activity to be tested..
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div
+      id="modal-portfolio"
+      data-target="modal-portfolio"
+      class="modal max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full h-full flex flex-col items-center justify-center">
+        <button
+          id="btn-modal-portfolio-close"
+          class="btn-modal-close text-white text-3xl w-[90%] flex items-center justify-end"
+        >
+          <i class="fa-solid fa-xmark w-10 h-10"></i>
+        </button>
+        <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md mb-20">
+          <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">Asesmen Portfolio</h2>
+          <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">Portfolio Assessment</h2>
+          <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5 text-lg">
+            <h3 lang="id" class="text-mandiri-blue text-xl">Deskripsi</h3>
+            <h3 lang="en" class="text-mandiri-blue text-xl">Description</h3>
+            <p lang="id" class="text-mandiri-blue">
+              Asesmen portfolio (pegawai telah mempunyai pengalaman kerja), perangkat asesmen yang
+              digunakan adalah  Formulir Ceklis Verifikasi Portofolio (FR.IA.08. CVP), Formulir
+              Pertanyaan Wawancara (FR.IA.09. PW), atau Formulir Verifikasi Pihak Ketiga (FR.IA.10.
+              VPK)
+            </p>
+            <p lang="en" class="text-mandiri-blue">
+              Portfolio assessment (employees already have work experience), the assessment tools
+              used are the Portfolio Verification Checklist Form (FR.IA.08. CVP), Interview Question
+              Form (FR.IA.09. PW), or Third Party Verification Form (FR.IA.10.VPK).
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div
+      id="modal-uji"
+      data-target="modal-uji"
+      class="modal max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full h-full flex flex-col items-center justify-center">
+        <button
+          id="btn-modal-uji-close"
+          class="btn-modal-close text-white text-3xl w-[90%] flex items-center justify-end"
+        >
+          <i class="fa-solid fa-xmark w-10 h-10"></i>
+        </button>
+        <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md mb-20">
+          <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">Asesmen Uji Kompetensi</h2>
+          <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">Competency Test Assessment</h2>
+          <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5 text-lg">
+            <h3 lang="id" class="text-mandiri-blue text-xl">Deskripsi</h3>
+            <h3 lang="en" class="text-mandiri-blue text-xl">Description</h3>
+            <p lang="id" class="text-mandiri-blue">
+              Asesmen uji kompetensi, (pegawai belum mempunyai pengalaman kerja), perangkat asesmen
+              yang digunakan adalah Formulir Daftar Instruksi Terstruktur (Penjelasan Proyek
+              Singkat/ Kegiatan Terstruktur Lainnya (FR.IA.04A DIT), Formulir Penilaian Proyek
+              Singkat atau Kegiatan Terstruktur Lainnya (FR.IA.04B DIT), Formulir Pertanyaan
+              Tertulis Pilihan Ganda (FR.IA.05 DPT), atau Formulir Pertanyaan Tertulis Esai
+              (FR.IA.06.A.DPT), atau Formulir Pertanyaan Lisan (FR.IA.07. DPL)
+            </p>
+            <p lang="en" class="text-mandiri-blue">
+              Competency test assessment, (employees who do not have work experience), assessment
+              tools The assessment tools used are Structured Instruction List Form (Short Project
+              Explanation/Other Structured Activities (FR.IA.04A DIT), Short Project Assessment Form
+              or Other Structured Activities (FR.IA.04B DIT), Multiple Choice Written Question Form
+              (FR.IA.05 DPT), or Essay Written Question Form (FR.IA.06.A.DPT), or Oral Question Form
+              (FR.IA.07. DPL).
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div
+      id="modal-kompetensi"
+      data-target="modal-kompetensi"
+      class="modal max-h-full w-full h-full hidden flex-row items-center justify-center fixed top-0 left-0 right-0 bg-black bg-opacity-55 z-10 no-scrollbar"
+    >
+      <div class="relative w-full h-full flex flex-col items-center justify-center">
+        <button
+          id="btn-modal-kompetensi-close"
+          class="btn-modal-close text-white text-3xl w-[90%] flex items-center justify-end"
+        >
+          <i class="fa-solid fa-xmark w-10 h-10"></i>
+        </button>
+        <section class="w-[90%] bg-[#FAFAFA] flex flex-col p-5 gap-5 rounded-md mb-20">
+          <h2 lang="id" class="text-mandiri-dark font-bold text-3xl">Keputusan</h2>
+          <h2 lang="en" class="text-mandiri-dark font-bold text-3xl">Compliance</h2>
+          <div class="rounded-md bg-white bg-opacity-50 border border-white shadow-md p-5 text-lg">
+            <h3 lang="id" class="text-mandiri-blue text-xl">Deskripsi</h3>
+            <h3 lang="en" class="text-mandiri-blue text-xl">Description</h3>
+            <p lang="id" class="text-mandiri-blue">
+              Asesor membuat rekapitulasi hasil asesmen dari asesi dan memberikan rekomendasi final
+              (kompeten atau belum kompeten) menggunakan Formulir Rekaman Asesmen Kompetensi
+              (FR.AK.02), dilampirkan bukti-bukti formulir yang digunakan.
+            </p>
+            <p lang="en" class="text-mandiri-blue">
+              The assessor makes a recapitulation of the assessment results from the assessee and
+              provides a final recommendation (competent or not competent) using the Competency
+              Assessment Record Form (FR.AK.02), attached with evidence of the form used.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="text/javascript">
+    AOS.init();
+    const btnTableAsesor = document.querySelectorAll(".list-nama-asesor");
+    const modalTableAsesor = document.getElementById("modal-table-asesor");
+    const btnCloseTableAsesor = document.getElementById("btn-close-table-asesor");
+    const btnLang = document.querySelectorAll(".btn-lang");
+
+    const pageNumber = document.querySelectorAll(".page-number");
+    const btnFormulirAsesi = document.querySelectorAll(".btn-formulir-isian-asesi");
+
+    const popupFormAsesi = document.getElementById("popup-asesi");
+    const btnClosePopupAsesi = document.getElementById("btn-popup-asesi-close");
+
+    const btnModalSkema = document.querySelectorAll(".btn-modal");
+    const modalSkema = document.querySelectorAll(".modal-skema");
+    const modalRegistrasi = document.querySelectorAll(".modal-registrasi");
+    const btnModalRegistrasi = document.querySelectorAll(".btn-modal-registrasi");
+    const modalFormUji = document.querySelectorAll(".modal");
+    const btnModalFormUji = document.querySelectorAll(".btn-modal-uji");
+
+    let page = 1;
+    let totalPages = 1;
+    const rowsPerPage = 5;
+    let accessToken;
+    let taskId;
+    let dataAsesor = [];
+
+    btnClosePopupAsesi.addEventListener("click", () => {
+      event.preventDefault();
+
+      popupFormAsesi.classList.remove("flex");
+      popupFormAsesi.classList.add("hidden");
+    });
+
+    btnFormulirAsesi.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        event.preventDefault();
+
+        modalRegistrasi.forEach((modal) => {
+          modal.classList.remove("active");
+        });
+        popupFormAsesi.classList.remove("hidden");
+        popupFormAsesi.classList.add("flex");
+      });
+    });
+
+    // modal table list asesor
+    btnTableAsesor.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        event.preventDefault();
+
+        modalRegistrasi.forEach((modal) => {
+          modal.classList.remove("active");
+        });
+
+        modalTableAsesor.classList.remove("hidden");
+        modalTableAsesor.classList.add("flex");
+      });
+    });
+
+    btnCloseTableAsesor.addEventListener("click", () => {
+      event.preventDefault();
+
+      modalTableAsesor.classList.remove("flex");
+      modalTableAsesor.classList.add("hidden");
+    });
+
+    btnModalSkema.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        let name = btn.getAttribute("data-name");
+        modalSkema.forEach((modal) => {
+          let target = modal.getAttribute("data-target");
+          if (name === target) {
+            modal.classList.add("active");
+          }
+        });
+      });
+    });
+
+    modalSkema.forEach((modal) => {
+      modal.querySelector(".btn-close").addEventListener("click", (event) => {
+        event.preventDefault();
+        modal.classList.remove("active");
+      });
+    });
+
+    btnModalRegistrasi.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        modalSkema.forEach((skema) => {
+          skema.classList.remove("active");
+        });
+        let name = btn.getAttribute("data-name");
+        modalRegistrasi.forEach((modal) => {
+          let target = modal.getAttribute("data-target");
+          if (name === target) {
+            modal.classList.add("active");
+          }
+        });
+      });
+    });
+
+    modalRegistrasi.forEach((modal) => {
+      modal.querySelector(".btn-close-registrasi").addEventListener("click", (event) => {
+        event.preventDefault();
+        modal.classList.remove("active");
+      });
+    });
+
+    btnModalFormUji.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        let name = btn.getAttribute("data-name");
+        modalFormUji.forEach((modal) => {
+          let target = modal.getAttribute("data-target");
+          if (name === target) {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+          }
+        });
+      });
+    });
+
+    modalFormUji.forEach((modal) => {
+      modal.querySelector(".btn-modal-close").addEventListener("click", (event) => {
+        event.preventDefault();
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+      });
+    });
+
+    // Change Language
+    function changeLanguage(lang) {
+      if (event) event.preventDefault();
+      document.documentElement.setAttribute("lang", lang);
+      const elements = document.querySelectorAll("[lang]");
+
+      for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+
+        if (element.getAttribute("lang") === lang) {
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+      }
+    }
+
+    btnLang.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        const lang = btn.getAttribute("data-name");
+        changeLanguage(lang);
+        btnLang.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        btn.classList.add("active");
+      });
+    });
+
+    async function fetchToken() {
+      try {
+        const response = await fetch(
+          "https://mandiriclick-pilot.csod.com/Analytics/ReportBuilder/index.aspx?tab_page_id=-880000#/SharedWithMe",
+        );
+        const text = await response.text();
+        const accessTokenRegex = /accessToken:\s*'([^']+)'/;
+        const match = text.match(accessTokenRegex);
+
+        if (match && match[1]) {
+          accessToken = match[1];
+          return accessToken;
+        } else {
+          console.log("Token not found");
+          return null;
+        }
+      } catch (error) {
+        console.error("Error fetching the token:", error);
+        return null;
+      }
+    }
+
+    async function getTaskId() {
+      try {
+        const response = await fetch(
+          "https://mandiriclick-pilot.csod.com/reportarchitect/rctdatacore/metaapi/v1/report/275/rendered",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: accessToken,
+            },
+          },
+        );
+        const data = await response.json();
+        taskId = data.taskId;
+        return taskId;
+      } catch (error) {
+        console.error("Error fetching the taskId:", error);
+        return null;
+      }
+    }
+
+    async function getResultReport() {
+      const maxRetries = 3;
+      let retryCount = 0;
+      while (retryCount < maxRetries) {
+        try {
+          const response = await fetch(
+            `https://mandiriclick-pilot.csod.com/reportarchitect/rctdatacore/metaapi/v1/reports/tasks/${taskId}/result`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: accessToken,
+              },
+            },
+          );
+
+          if (response.status === 200) {
+            const data = await response.json();
+            dataAsesor = data?.data.slice(1);
+            return dataAsesor;
+            break;
+          } else if (response.status === 204) {
+            console.log("No Content, retrying...");
+          } else {
+            console.log("Unexpected status code:", response.status);
+            const errorData = await response.text();
+            console.error("Error data:", errorData);
+            break;
+          }
+        } catch (error) {
+          console.error("Error fetching the result:", error);
+          break;
+        }
+        retryCount++;
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+      }
+    }
+
+    function renderTable(page) {
+      let table = new DataTable("#myTable", {
+        data: dataAsesor,
+        columns: [
+          { title: "User ID" },
+          { title: "Home Location" },
+          { title: "Trainer's First Name" },
+          { title: "Trainer's Last Name" },
+        ],
+      });
+    }
+
+    async function displayReports() {
+      try {
+        await fetchToken();
+        await getTaskId();
+        await getResultReport();
+        totalPages = Math.ceil((dataAsesor.length - 1) / rowsPerPage);
+        renderTable(page);
+      } catch (error) {
+        console.error("Error display reports:" + error);
+      }
+    }
+
+    document.querySelectorAll(".btn-next").forEach((btnNext) => {
+      btnNext.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (page < totalPages) {
+          page++;
+          pageNumber.forEach((item) => (item.innerText = page));
+          renderTable(page);
+        }
+      });
+    });
+
+    document.querySelectorAll(".btn-prev").forEach((btnPrev) => {
+      btnPrev.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (page > 1) {
+          page--;
+          pageNumber.forEach((item) => (item.innerText = page));
+          renderTable(page);
+        }
+      });
+    });
+
+    displayReports();
+    changeLanguage("id");
+    imageMapResize();
+  </script>
+</div>
